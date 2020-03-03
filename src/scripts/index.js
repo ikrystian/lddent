@@ -19,3 +19,14 @@ person.on('click', function () {
     description.hide();
     $(descriptionContainer).slideDown();
 });
+
+$(window).scroll(function() {
+    let header = $('.header');
+    let scroll = header.offset().top;
+
+    if (scroll >= 500) {
+        header.addClass('header--no-margin');
+    } else {
+        header.removeClass('header--no-margin');
+    }
+});
