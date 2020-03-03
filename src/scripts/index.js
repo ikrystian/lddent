@@ -7,6 +7,7 @@ window.onload = function () {
         offset: 64
     })
 };
+$('.close-modal').on('click', () =>  $('.modal__wrapper').fadeOut());
 
 const person = $('.person');
 person.on('click', function () {
@@ -19,6 +20,7 @@ person.on('click', function () {
     description.hide();
     $(descriptionContainer).slideDown();
 });
+let recentScroll = false;
 
 $(window).scroll(function() {
     let header = $('.header');
@@ -29,4 +31,6 @@ $(window).scroll(function() {
     } else {
         header.removeClass('header--no-margin');
     }
+    recentScroll = true;
+    window.setTimeout(function() { recentScroll = false; }, 2000)
 });

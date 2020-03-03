@@ -107,7 +107,7 @@ body {
     border-top: 0;
 
     &--no-margin {
-     top: 0;
+      top: 0;
       left: 0;
       right: 0;
     }
@@ -173,7 +173,6 @@ body {
     @include res(tab) {
       display: flex;
     }
-
 
 
     svg {
@@ -271,6 +270,15 @@ body {
 
   &__item {
     margin: 0.5rem;
+    overflow: hidden;
+
+    &:nth-child(1) {
+      border-radius: 2rem 0 0 0;
+    }
+
+    &:nth-child(3) {
+      border-radius: 0 2rem 0 0;
+    }
 
     @include res(tab) {
       margin: 0 1rem 2rem 1rem;
@@ -327,7 +335,7 @@ body {
     transition: opacity 0.2s;
 
     @include res(tab) {
-      height: 467px;
+      height: 400px;
     }
 
     img {
@@ -421,15 +429,15 @@ body {
   }
 
   @include res(tab) {
-    padding: 64px 1rem 1rem 1rem;
+    padding: 1rem;
   }
 
   @include res(desktop) {
-    padding: 64px 3rem 2rem 3rem;
+    padding: 2rem 3rem;
   }
 
   @include res(wide) {
-    padding: 64px 4rem 2rem 4rem;
+    padding: 2rem 4rem;
   }
 
   &__paragraph {
@@ -877,6 +885,8 @@ body {
     color: #fff;
     padding: 0.5rem;
     flex: 1;
+    display: flex;
+    justify-content: center;
 
     @include res(phone) {
       padding: 1rem;
@@ -950,8 +960,15 @@ body {
   position: relative;
   padding: 1rem 1rem 0 1rem;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+
+  h1 {
+    font-size: 3rem;
+    color: #fff;
+    text-transform: uppercase
+  }
 
   //&::after {
   //  position: absolute;
@@ -974,7 +991,7 @@ body {
 .about {
   &__container {
     padding-top: 5rem;
-    transform: translateY(-8rem);
+    margin-top: -8rem;
     background-color: #fff;
     border-radius: 2rem 2rem 0 0;
     position: relative;
@@ -1021,6 +1038,7 @@ body {
   width: 75px;
   height: 65px;
   transform: scale(0.75);
+
   &:hover {
     polygon {
       fill: var(--secondary-color);
@@ -1049,4 +1067,108 @@ polygon {
     opacity: 0.5
   }
 
+}
+
+// change hex to vars
+.modal {
+  width: 680px;
+  max-width: 98vw;
+  position: relative;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  min-height: 400px;
+
+  @include res(phone) {
+    padding-left: 220px;
+  }
+
+  &__wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 6;
+  }
+
+
+  &__header,
+  &__footer {
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 1.5em;
+  }
+
+  &__image {
+    width: 200px;
+    height: 420px;
+    background: url('../assets/images/modal-bg.jpg') left bottom no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: 1rem;
+    top: -10px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    display: none;
+
+    @include res(phone) {
+      display: block;
+    }
+  }
+
+  &__close {
+    border: 0;
+    background-color: transparent;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    outline: none;
+
+    i {
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    &:hover, &:focus {
+      background-color: rgba(0, 0, 0, 0.05);
+
+      i {
+        color: var(--primary-color);
+        transform: rotate(90deg)
+      }
+    }
+  }
+
+  &__content {
+    padding: 1rem;
+    min-height: 300px;
+    max-height: calc(95vh - 82px)
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      background-color: #77c9c5;
+      color: #fff;
+      border: 0;
+      margin-left: 1rem;
+      padding: 0.5rem 1rem;
+    }
+  }
 }
