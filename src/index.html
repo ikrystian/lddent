@@ -12,6 +12,7 @@
     />
 </head>
 <body>
+
 <div class="content">
     <aside class="sidenav">
         <div class="sidenav__content">
@@ -29,9 +30,9 @@
             </a>
 
             <nav class="nav-container">
-                <ul class="nav">
+                <ul class="nav" id="main-menu">
                     <li class="nav__item">
-                        <a href="#home" class="nav__link nav__link--active">
+                        <a href="#home" class="nav__link">
                             <span class="nav__icon"><i class="material-icons">home</i></span>
                             <span class="nav__item-name">Home</span>
                         </a>
@@ -49,15 +50,16 @@
                         </a>
                     </li>
                     <li class="nav__item">
+                        <a href="#payment" class="nav__link">
+                            <span class="nav__icon"><i class="material-icons">cash</i></span>
+                            <span class="nav__item-name">Płatności</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
                         <a href="#contact" class="nav__link">
                             <span class="nav__icon"><i class="material-icons">contact_mail</i></span>
                             <span class="nav__item-name">Kontakt</span>
                         </a>
-                    </li>
-                    <li class="nav__item">
-                        <button class="nav__link">
-                            <span class="nav__icon"><i class="material-icons">menu</i></span>
-                        </button>
                     </li>
                 </ul>
 
@@ -85,7 +87,7 @@
 
         </div>
     </header>
-
+    <section class="section home" id="home">home</section>
     <section class="section" id="about">
         <h2 class="section__title">O nas</h2>
 
@@ -93,7 +95,7 @@
 
             <ul class="persons">
                 <li class="persons__item">
-                    <button class="person person--active" data-person="first">
+                    <a href="#person-description" class="person person--active" data-person="first">
                     <span class="person__image">
                         <img src="${require('./assets/images/person-1.png')}" alt="Lek. stom. Lidia Danielewska">
                     </span>
@@ -101,10 +103,10 @@
                         <span>Lek. stom.</span>
                         <span>Lidia Danielewska</span>
                     </span>
-                    </button>
+                    </a>
                 </li>
                 <li class="persons__item">
-                    <button class="person" data-person="second">
+                    <a href="#person-description" class="person" data-person="second">
                     <span class="person__image">
                         <img src="${require('./assets/images/person-2.png')}" alt="Lek. stom. Sylwia Smyk">
                     </span>
@@ -112,10 +114,10 @@
                         <span>Lek. stom.</span>
                         <span>Sylwia Smyk</span>
                     </span>
-                    </button>
+                    </a>
                 </li>
                 <li class="persons__item">
-                    <button class="person" data-person="third">
+                    <a href="#person-description" class="person" data-person="third">
                     <span class="person__image">
                         <img src="${require('./assets/images/person-3.png')}" alt="Hig. STOM. Anna Polkowska">
                     </span>
@@ -123,50 +125,86 @@
                         <span>Hig. STOM.</span>
                         <span>Anna Polkowska</span>
                     </span>
-                    </button>
+                    </a>
                 </li>
             </ul>
+            <div id="person-description">
+                <div class="person-description container" id="first-person-details">
+                    <p class="person-description__paragraph">Jestem lekarzem stomatologiem z wieloletnim doświadczeniem.
+                        W roku 1989 ukończyłam studia na
+                        wydziale
+                        lekarsko–dentystycznym na Uniwersytecie Medycznym w Lublinie. Od 1993 roku prowadzę prywatny
+                        gabinet
+                        ogólnostomatologiczny, w którym oferuję Pacjentom szeroki zakres usług: od profilaktyki do
+                        protetyki. </p>
+                    <p class="person-description__paragraph">Praca jest moją pasją, dlatego dbam o systematyczne
+                        poszerzanie wiedzy, poprzez uczestnictwo w
+                        szkoleniach dla stomatologów i studiowanie fachowej literatury. Pozwala mi to na stosowanie
+                        nowoczesnych metod leczenia, zgodnych z aktualną wiedzą medyczną. Do każdego Pacjenta i jego
+                        problemów podchodzę indywidualnie, zapewniając profesjonalną obsługę i przyjazną atmosferę.
+                        Chętnie
+                        przyjmuję dzieci w każdym wieku.</p>
+                    <h3 class="person-description__title"><span>Zakres wykonywanych zabiegów</span></h3>
 
-            <div class="person-description container" id="first-person-details">
-                <p>Jestem lekarzem stomatologiem z wieloletnim doświadczeniem. W roku 1989 ukończyłam studia na wydziale
-                    lekarsko–dentystycznym na Uniwersytecie Medycznym w Lublinie. Od 1993 roku prowadzę prywatny gabinet
-                    ogólnostomatologiczny, w którym oferuję Pacjentom szeroki zakres usług: od profilaktyki do
-                    protetyki. </p>
-                <p>Praca jest moją pasją, dlatego dbam o systematyczne poszerzanie wiedzy, poprzez uczestnictwo w
-                    szkoleniach dla stomatologów i studiowanie fachowej literatury. Pozwala mi to na stosowanie
-                    nowoczesnych metod leczenia, zgodnych z aktualną wiedzą medyczną. Do każdego Pacjenta i jego
-                    problemów podchodzę indywidualnie, zapewniając profesjonalną obsługę i przyjazną atmosferę. Chętnie
-                    przyjmuję dzieci w każdym wieku.</p>
-                <h3 class="person-description__title"><span>Zakres wykonywanych zabiegów</span></h3>
-                <ul class="description-list person-description__list">
-                    <li class="description-list__item">stomatologia zachowawcza</li>
-                    <li class="description-list__item">endodoncja</li>
-                    <li class="description-list__item">protetyka</li>
-                    <li class="description-list__item">usuwanie zębów</li>
-                    <li class="description-list__item">zabiegi profilaktyczne</li>
-                    <li class="description-list__item">wybielanie zębów</li>
-                </ul>
-            </div>
-            <div class="person-description container" id="second-person-details">
-                <p>Jestem lekarzem stomatologiem z wieloletnim doświadczeniem. W roku 1989 ukończyłam studia na
-                    wydziale
-                    lekarsko–dentystycznym na Uniwersytecie Medycznym w Lublinie. Od 1993 roku prowadzę prywatny gabinet
-                    ogólnostomatologiczny, w którym oferuję Pacjentom szeroki zakres usług: od profilaktyki do
-                    protetyki. </p>
-                <p>Praca jest moją pasją, dlatego dbam o systematyczne poszerzanie wiedzy, poprzez uczestnictwo w
-                    szkoleniach dla stomatologów i studiowanie fachowej literatury. Pozwala mi to na stosowanie
-                    nowoczesnych metod leczenia, zgodnych z aktualną wiedzą medyczną. Do każdego Pacjenta i jego
-                    problemów podchodzę indywidualnie, zapewniając profesjonalną obsługę i przyjazną atmosferę. Chętnie
-                    przyjmuję dzieci w każdym wieku.</p>
-                <h3 class="person-description__title"><span>Zakres wykonywanych zabiegów</span></h3>
-                <ul class="description-list person-description__list">
-                    <li class="description-list__item">stomatologia zachowawcza</li>
-                    <li class="description-list__item">endodoncja</li>
-                    <li class="description-list__item">protetyka</li>
-                    <li class="description-list__item">usuwanie zębów</li>
-                    <li class="description-list__item">zabiegi profilaktyczne</li>
-                    <li class="description-list__item">wybielanie zębów</li>
-                </ul>
+                    <ul class="range person-description__list">
+                        <li class="range__item">stomatologia zachowawcza</li>
+                        <li class="range__item">endodoncja</li>
+                        <li class="range__item">protetyka</li>
+                        <li class="range__item">usuwanie zębów</li>
+                        <li class="range__item">zabiegi profilaktyczne</li>
+                        <li class="range__item">wybielanie zębów</li>
+                    </ul>
+                </div>
+                <div class="person-description container" id="second-person-details">
+                    <p class="person-description__paragraph">Jestem lekarzem stomatologiem z wieloletnim doświadczeniem.
+                        W roku 1989 ukończyłam studia na
+                        wydziale
+                        lekarsko–dentystycznym na Uniwersytecie Medycznym w Lublinie. Od 1993 roku prowadzę prywatny
+                        gabinet
+                        ogólnostomatologiczny, w którym oferuję Pacjentom szeroki zakres usług: od profilaktyki do
+                        protetyki. </p>
+                    <p class="person-description__paragraph">Praca jest moją pasją, dlatego dbam o systematyczne
+                        poszerzanie wiedzy, poprzez uczestnictwo w
+                        szkoleniach dla stomatologów i studiowanie fachowej literatury. Pozwala mi to na stosowanie
+                        nowoczesnych metod leczenia, zgodnych z aktualną wiedzą medyczną. Do każdego Pacjenta i jego
+                        problemów podchodzę indywidualnie, zapewniając profesjonalną obsługę i przyjazną atmosferę.
+                        Chętnie
+                        przyjmuję dzieci w każdym wieku.</p>
+                    <h3 class="person-description__title"><span>Zakres wykonywanych zabiegów</span></h3>
+                    <ul class="description-list person-description__list">
+                        <li class="description-list__item">stomatologia zachowawcza</li>
+                        <li class="description-list__item">endodoncja</li>
+                        <li class="description-list__item">protetyka</li>
+                        <li class="description-list__item">usuwanie zębów</li>
+                        <li class="description-list__item">zabiegi profilaktyczne</li>
+                        <li class="description-list__item">wybielanie zębów</li>
+                    </ul>
+                </div>
+                <div class="person-description container" id="third-person-details">
+                    <p class="person-description__paragraph">Jestem lekarzem stomatologiem z wieloletnim doświadczeniem.
+                        W roku 1989 ukończyłam studia na
+                        wydziale
+                        lekarsko–dentystycznym na Uniwersytecie Medycznym w Lublinie. Od 1993 roku prowadzę prywatny
+                        gabinet
+                        ogólnostomatologiczny, w którym oferuję Pacjentom szeroki zakres usług: od profilaktyki do
+                        protetyki. </p>
+                    <p class="person-description__paragraph">Praca jest moją pasją, dlatego dbam o systematyczne
+                        poszerzanie wiedzy, poprzez uczestnictwo w
+                        szkoleniach dla stomatologów i studiowanie fachowej literatury. Pozwala mi to na stosowanie
+                        nowoczesnych metod leczenia, zgodnych z aktualną wiedzą medyczną. Do każdego Pacjenta i jego
+                        problemów podchodzę indywidualnie, zapewniając profesjonalną obsługę i przyjazną atmosferę.
+                        Chętnie
+                        przyjmuję dzieci w każdym wieku.</p>
+                    <h3 class="person-description__title"><span>Zakres wykonywanych zabiegów</span></h3>
+                    <ul class="description-list person-description__list">
+                        <li class="description-list__item">stomatologia zachowawcza</li>
+                        <li class="description-list__item">endodoncja</li>
+                        <li class="description-list__item">protetyka</li>
+                        <li class="description-list__item">usuwanie zębów</li>
+                        <li class="description-list__item">zabiegi profilaktyczne</li>
+                        <li class="description-list__item">wybielanie zębów</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -312,7 +350,7 @@
         </div>
     </section>
 
-    <section class="section payment">
+    <section class="section payment" id="payment">
         <!--    Maybe show cards and currencies     -->
         <h2 class="section__title">Dostępne Formy Płatności</h2>
         <div class="container">
@@ -483,14 +521,16 @@
     </div>
 </section>
 <section class="map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d79969.52869485738!2d22.493730871256634!3d51.218195621388666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x472257141e154061%3A0x5528ee7af6e8e95f!2sLublin!5e0!3m2!1spl!2spl!4v1583228701296!5m2!1spl!2spl" width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d79969.52869485738!2d22.493730871256634!3d51.218195621388666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x472257141e154061%3A0x5528ee7af6e8e95f!2sLublin!5e0!3m2!1spl!2spl!4v1583228701296!5m2!1spl!2spl"
+            width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 </section>
 
 <footer class="footer">
     <a href="" class="footer__logo">
         <img src="${require('./assets/images/logo.png')}" class="footer__image" alt="logo">
     </a>
-    <p class="footer__text">© Copyright 2020 - <a href="https://lddent.pl" class="footer__link">lddent</a>. All rights reserved. | by <a href="http://bpcoders.pl" class="footer__link" target="_blank">BPCoders</a></p>
+    <p class="footer__text">© Copyright 2020 - <a href="https://lddent.pl" class="footer__link">lddent</a>. All rights
+        reserved. | by <a href="http://bpcoders.pl" class="footer__link" target="_blank">BPCoders</a></p>
 </footer>
 
 <!-- webpack inject script file / don't modify this line -->

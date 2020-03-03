@@ -86,12 +86,14 @@ body {
   display: flex;
   align-items: center;
   z-index: 2;
+  border-top: 1px solid #fff;
   @include primary-gradient(var(--primary-color), var(--secondary-color));
 
   @include res(tab) {
     bottom: unset;
     top: 0;
     padding: 0.5rem 1rem;
+    border-top: 0;
   }
 
   &__container {
@@ -176,12 +178,13 @@ body {
     text-decoration: none;
     border: 0;
     background-color: transparent;
+    transition: color 0.2s;
 
     @include res(tab) {
       flex-direction: row;
     }
 
-    &--active {
+    &.active {
       color: var(--nav-link-active-color);
     }
   }
@@ -210,6 +213,7 @@ body {
 }
 
 .section {
+
   &__title {
     font-size: 3em;
     text-align: center;
@@ -217,6 +221,10 @@ body {
 
     @include res(tab) {
       padding: 2rem 1rem;
+    }
+
+    @include res(desktop) {
+      padding: 64px 1rem 2rem;
     }
   }
 }
@@ -244,6 +252,7 @@ body {
   width: 160px;
   outline: none;
   cursor: pointer;
+  text-decoration: none;
 
   @include res(tab) {
     width: 332px;
@@ -320,6 +329,50 @@ body {
   }
 }
 
+.range {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem -0.5rem;
+  justify-content: space-between;
+  &__item {
+    margin: 0.5rem;
+    text-align: center;
+    padding: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 160px;
+    height: 160px;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    background-color: var(--primary-color);
+
+    &:nth-child(1) {
+      background-color: #89bfdb;
+    }
+
+    &:nth-child(2) {
+      background-color: #84bfd4;
+    }
+
+    &:nth-child(3) {
+      background-color: #7fbfcd;
+    }
+
+    &:nth-child(4) {
+      background-color: #79bfc5;
+    }
+
+    &:nth-child(5) {
+      background-color: #74bfbf;
+    }
+
+    &:nth-child(6) {
+      background-color: #6fc0b8;
+    }
+  }
+}
+
 .person-description {
   padding: 0.5rem;
   font-size: 1.125em;
@@ -329,19 +382,22 @@ body {
   }
 
   @include res(tab) {
-    padding: 1rem;
+    padding: 64px 1rem 1rem 1rem;
   }
 
   @include res(desktop) {
-    padding: 2rem 3rem;
+    padding: 64px 3rem 2rem 3rem;
   }
 
   @include res(wide) {
-    padding: 2rem 4rem;
+    padding: 64px 4rem 2rem 4rem;
   }
 
-  p {
+  &__paragraph {
     margin-bottom: 2rem;
+    border-left: 3px solid var(--primary-color);
+    padding: 0.5rem 1.5rem;
+    line-height: 1.4em;
   }
 
   &__title {
@@ -399,7 +455,7 @@ body {
       background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
       position: absolute;
       left: 0;
-      top: 0.9rem;
+      top: 16px;
     }
   }
 }
@@ -554,7 +610,7 @@ body {
   flex-wrap: wrap;
 
   @include res(tab) {
-    padding: 3rem;
+    padding: 0 3rem 3rem 3rem;
   }
 
   &__item {
@@ -571,12 +627,12 @@ body {
     position: relative;
 
     @include res(phone) {
-      margin: 0.5rem;
+      margin: 0 0.5rem 0.5rem 0.5rem;
       height: 350px;
     }
 
     @include res(tab) {
-      margin: 1rem 2rem;
+      margin: 0 2rem 1rem;
     }
 
     &:not(:hover) {
@@ -609,9 +665,9 @@ body {
     }
   }
 
-   &__image {
-     transition: transform 0.2s
-   }
+  &__image {
+    transition: transform 0.2s
+  }
 
   &__name {
     margin-top: 2rem;
@@ -632,15 +688,15 @@ body {
 }
 
 .contact-form {
-  padding: 0.5rem;
+  padding: 0 0.5rem 0.5rem 0.5rem;
 
   @include res(phone) {
-    padding: 1rem;
+    padding: 0 1rem 1rem 1rem;
   }
 
- @include res(tab) {
-   padding: 2rem;
- }
+  @include res(tab) {
+    padding: 0 2rem 2rem 2rem;
+  }
 
   &__content {
     background-color: var(--contact-form-background-color);
@@ -648,7 +704,7 @@ body {
     box-shadow: 0 30px 50px rgba(145, 190, 234, 0.53);
 
     @include res(phone) {
-    padding: 2rem 2rem 1rem 2rem;
+      padding: 2rem 2rem 1rem 2rem;
     }
   }
 
@@ -754,9 +810,10 @@ body {
     font-weight: bold;
     background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     color: #fff;
-    text-transform: uppercase;
     border: 0;
     cursor: pointer;
+    width: 320px;
+    max-width: 100%;
 
     &:hover,
     &:focus {
@@ -801,6 +858,7 @@ body {
     &--primary {
       background-color: var(--primary-color);
     }
+
     &--secondary {
       background-color: var(--secondary-color);
     }
@@ -844,4 +902,8 @@ body {
       text-decoration: none;
     }
   }
+}
+
+.home {
+  min-height: 100vh;
 }

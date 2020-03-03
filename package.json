@@ -38,6 +38,7 @@
   "dependencies": {
     "jquery": "^3.4.1",
     "normalize-scss": "^7.0.1",
+    "simple-scrollspy": "^2.0.3",
     "vivus": "^0.4.5"
   }
 }
