@@ -148,7 +148,7 @@
                 </ul>
             </div>
             <div class="person-description container" id="second-person-details">
-                <p>1Jestem lekarzem stomatologiem z wieloletnim doświadczeniem. W roku 1989 ukończyłam studia na
+                <p>Jestem lekarzem stomatologiem z wieloletnim doświadczeniem. W roku 1989 ukończyłam studia na
                     wydziale
                     lekarsko–dentystycznym na Uniwersytecie Medycznym w Lublinie. Od 1993 roku prowadzę prywatny gabinet
                     ogólnostomatologiczny, w którym oferuję Pacjentom szeroki zakres usług: od profilaktyki do
@@ -177,7 +177,7 @@
 
             <ul class="offer-puzzles">
                 <li class="offer-puzzles__item">
-                    <button class="offer-puzzles__button offer-puzzles__button--third offer-puzzles__button--active">
+                    <button class="offer-puzzles__button offer-puzzles__button--active">
                         <svg xmlns="http://www.w3.org/2000/svg" width="79.35" height="95.34" viewBox="0 0 79.35 95.34">
                             <g transform="translate(-324.361 -942.579)">
                                 <g transform="translate(326.536 944.693)">
@@ -193,7 +193,7 @@
                     </button>
                 </li>
                 <li class="offer-puzzles__item">
-                    <button class="offer-puzzles__button offer-puzzles__button--secondary">
+                    <button class="offer-puzzles__button offer-puzzles__button--third">
                         <svg xmlns="http://www.w3.org/2000/svg" width="79.35" height="95.342"
                              viewBox="0 0 79.35 95.342">
                             <g transform="translate(-532.09 -2650.358)" opacity="0.798">
@@ -227,7 +227,7 @@
                     </button>
                 </li>
                 <li class="offer-puzzles__item">
-                    <button class="offer-puzzles__button">
+                    <button class="offer-puzzles__button offer-puzzles__button--third">
                         <svg xmlns="http://www.w3.org/2000/svg" width="79.349" height="95.34"
                              viewBox="0 0 79.349 95.34">
                             <g transform="translate(-211.556 -942.579)" opacity="0.8">
@@ -249,7 +249,7 @@
                     </button>
                 </li>
                 <li class="offer-puzzles__item">
-                    <button class="offer-puzzles__button offer-puzzles__button--third">
+                    <button class="offer-puzzles__button offer-puzzles__button--secondary">
                         <svg xmlns="http://www.w3.org/2000/svg" width="75" height="90.393" viewBox="0 0 75 90.393">
                             <g transform="translate(-766 -2745)" opacity="0.8">
                                 <g transform="translate(766 2745)">
@@ -313,6 +313,7 @@
     </section>
 
     <section class="section payment">
+        <!--    Maybe show cards and currencies     -->
         <h2 class="section__title">Dostępne Formy Płatności</h2>
         <div class="container">
             <ul class="payments-list">
@@ -380,16 +381,18 @@
                     </span>
                 </li>
                 <li class="payments-list__item">
-                    <span class="payments-list__icon">
-                        <img src="${require('./assets/images/installments.png')}" class="payments-list__image"
-                             alt="installments">
-                    </span>
-                    <span class="payments-list__name">
-                        Płatność w ratach
-                    </span>
-                    <span class="payments-list__description">
-                        Oferujemy preferencyjny system ratalny <strong>MediRaty</strong>
-                    </span>
+                    <a href="/" class="payments-list__link">
+                        <span class="payments-list__icon">
+                            <img src="${require('./assets/images/installments.png')}" class="payments-list__image"
+                                 alt="installments">
+                        </span>
+                        <span class="payments-list__name">
+                            Płatność w ratach
+                        </span>
+                        <span class="payments-list__description">
+                            Oferujemy preferencyjny system ratalny <strong>MediRaty</strong>
+                        </span>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -461,6 +464,35 @@
     </section>
 
 </div>
+
+<section class="contact-info">
+    <div class="contact-info__section contact-info__section--primary">
+        <h2 class="contact-info__title">Adres</h2>
+        <p><strong>LDdent Stomatologia</strong></p>
+        <p>ul.czworobok<br>22-200 Włodawa<br>tel. <a href="tel:+48696999905">(+48) 696 999 905</a></p>
+    </div>
+    <div class="contact-info__section contact-info__section--secondary">
+        <h2 class="contact-info__title">Godziny otwarcia</h2>
+        <p><strong>Poniedziałek:</strong> <span>8:00 - 12:00, 15:00-18.00</span></p>
+        <p><strong>Wtorek:</strong> <span>8:00 - 12:00, 15:00-18.00</span></p>
+        <p><strong>Środa:</strong> <span>8:00 - 12:00, 15:00-18.00</span></p>
+        <p><strong>Czwartek:</strong> <span> 8:00 - 12:00, 15:00-18.00</span></p>
+        <p><strong>Piątek:</strong> <span>8:00 - 12:00, 15:00-18.00</span></p>
+        <p><strong>Sobota:</strong> <span>9:00 - 11:00</span></p>
+        <p>W celu ustalenia wizyty w innych godzinach, proszę o kontakt.</p>
+    </div>
+</section>
+<section class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d79969.52869485738!2d22.493730871256634!3d51.218195621388666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x472257141e154061%3A0x5528ee7af6e8e95f!2sLublin!5e0!3m2!1spl!2spl!4v1583228701296!5m2!1spl!2spl" width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+</section>
+
+<footer class="footer">
+    <a href="" class="footer__logo">
+        <img src="${require('./assets/images/logo.png')}" class="footer__image" alt="logo">
+    </a>
+    <p class="footer__text">© Copyright 2020 - <a href="https://lddent.pl" class="footer__link">lddent</a>. All rights reserved. | by <a href="http://bpcoders.pl" class="footer__link" target="_blank">BPCoders</a></p>
+</footer>
+
 <!-- webpack inject script file / don't modify this line -->
 <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>
