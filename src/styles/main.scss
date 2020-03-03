@@ -910,10 +910,14 @@ body {
 }
 
 .home {
-  min-height: 100vh;
+  min-height: calc(100vh - 64px);
   background: url('../assets/images/home.jpg') fixed center no-repeat;
   background-size: cover;
   position: relative;
+  padding: 1rem 1rem 0 1rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 
   &::after {
     position: absolute;
@@ -924,11 +928,51 @@ body {
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
     display: block;
     content: '';
+    z-index: 1;
+  }
+
+  &__link {
+    z-index: 2;
+    position: relative;
   }
 }
 
 @supports (-webkit-touch-callout: none) {
- .home {
-   background-attachment: scroll;
- }
+  .home {
+    background-attachment: scroll;
+  }
+}
+
+.more-arrows {
+  width: 75px;
+  height: 65px;
+  transform: scale(0.75);
+  &:hover {
+    polygon {
+      fill: var(--secondary-color);
+      transition: all .2s ease-out;
+
+      &.arrow-bottom {
+        transform: translateY(-18px);
+      }
+
+      &.arrow-top {
+        transform: translateY(18px);
+      }
+    }
+  }
+}
+
+polygon {
+  fill: var(--primary-color);
+  transition: all .2s ease-out;
+
+  &.arrow-middle {
+    opacity: 0.75;
+  }
+
+  &.arrow-top {
+    opacity: 0.5
+  }
+
 }
