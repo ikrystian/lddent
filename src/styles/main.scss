@@ -901,16 +901,30 @@ body {
     }
 
     @include res(wide) {
-      padding: 3rem
+      padding: 3rem 5rem;
     }
 
     &--primary {
       background-color: var(--primary-color);
+      text-align: right;
+      display: flex;
+      justify-content: flex-end;
     }
 
     &--secondary {
       background-color: var(--secondary-color);
+      display: flex;
+      justify-content: flex-start;
+      text-align: left;
     }
+
+    p {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__link {
+    color: #fff;
   }
 }
 
