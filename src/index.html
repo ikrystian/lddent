@@ -6,15 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- webpack inject styles / don't modify this line -->
+
     <link
             rel="stylesheet"
             href="<%=htmlWebpackPlugin.files.chunks.main.css %>"
     />
+    <style>
+        .particles-button {
+            background: #77c9c5;
+        }
+    </style>
 </head>
 <body>
 
+<button class="show-modal" id="show-modal"  data-tippy-content="Umów się na wizytę !">
+    <img src="https://www.pinclipart.com/picdir/big/143-1430867_dentist-clipart-dental-kit-.png" alt="">
+</button>
+
 <div class="modal__wrapper" role="dialog">
-    <section class="modal">
+    <form class="modal">
         <div class="modal__image"></div>
         <header class="modal__header">
             <h1 class="modal__title">Umów się na wizytę</h1>
@@ -24,14 +34,36 @@
         </header>
 
         <main class="modal__content">
-            Formularz xD
+                <div class="modal-form__group">
+                    <label for="visit-name">Imię i nazwisko</label>
+                    <input type="text" id="visit-name" required autofocus>
+                </div>
+
+                <div class="modal-form__group">
+                    <label for="visit-date">Data wizyty</label>
+                    <input type="date" id="visit-date" required>
+                </div>
+
+                <div class="modal-form__group">
+                    <label for="visit-person">Osoba</label>
+                    <select name="person" id="visit-person">
+                        <option value="">lek. stom. Lidia Danielewska</option>
+                        <option value="">lek. stom. Sylwia Smyk</option>
+                        <option value="">hig. stom. Anna Polkowska</option>
+                    </select>
+                </div>
+                <div class="modal-form__group">
+                    <label for="visit-description">Dodatkowe uwagi</label>
+                    <textarea name="visit-description" id="visit-description" cols="30" rows="2"></textarea>
+                </div>
         </main>
 
         <footer class="modal__footer">
-            <button class="close-modal" type="button">Zamknij</button>
-            <button>Zapisz się</button>
+            <div class="grid__item theme-1">
+                <button type="button" class="particles-button">Zapisz się</button>
+            </div>
         </footer>
-    </section>
+    </form>
 </div>
 
 <div class="content">
@@ -51,7 +83,7 @@
                 <img src="${require('./assets/images/logo.png')}" class="logo__image" alt="logo">
             </a>
 
-            <nav class="nav-container cl-effect-2">
+            <nav class="nav-container">
                 <ul class="nav" id="main-menu">
                     <li class="nav__item">
                         <a href="#home" class="nav__link">
@@ -80,64 +112,6 @@
                     </li>
                 </ul>
 
-                <ul class="nav nav--lang">
-                    <li class="nav__item nav__item--lang">
-                        <button class="nav__link">
-                            <span class="nav__icon nav__icon--lang">
-                            <?xml version="1.0" encoding="iso-8859-1"?>
-                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                     y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
-                                     xml:space="preserve">
-                                <circle style="fill:#F0F0F0;" cx="256" cy="256" r="256"/><path style="fill:#D80027;"
-                                                                                               d="M512,256c0,141.384-114.616,256-256,256S0,397.384,0,256"/>
-                                <g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
-                            </span>
-                            <span class="nav__item-name hide-for-user">PL</span>
-                        </button>
-                    </li>
-                    <li class="nav__item nav__item--lang">
-                        <button class="nav__link">
-                            <span class="nav__icon nav__icon--lang">
-                                <?xml version="1.0" encoding="iso-8859-1"?>
-                                <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-     y="0px"
-     viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-<circle style="fill:#F0F0F0;" cx="256" cy="256" r="256"/>
-<g>
-	<path style="fill:#0052B4;" d="M52.92,100.142c-20.109,26.163-35.272,56.318-44.101,89.077h133.178L52.92,100.142z"/>
-	<path style="fill:#0052B4;" d="M503.181,189.219c-8.829-32.758-23.993-62.913-44.101-89.076l-89.075,89.076H503.181z"/>
-	<path style="fill:#0052B4;" d="M8.819,322.784c8.83,32.758,23.993,62.913,44.101,89.075l89.074-89.075L8.819,322.784L8.819,322.784
-		z"/>
-	<path style="fill:#0052B4;" d="M411.858,52.921c-26.163-20.109-56.317-35.272-89.076-44.102v133.177L411.858,52.921z"/>
-	<path style="fill:#0052B4;"
-          d="M100.142,459.079c26.163,20.109,56.318,35.272,89.076,44.102V370.005L100.142,459.079z"/>
-	<path style="fill:#0052B4;" d="M189.217,8.819c-32.758,8.83-62.913,23.993-89.075,44.101l89.075,89.075V8.819z"/>
-	<path style="fill:#0052B4;" d="M322.783,503.181c32.758-8.83,62.913-23.993,89.075-44.101l-89.075-89.075V503.181z"/>
-	<path style="fill:#0052B4;" d="M370.005,322.784l89.075,89.076c20.108-26.162,35.272-56.318,44.101-89.076H370.005z"/>
-</g>
-<g>
-	<path style="fill:#D80027;" d="M509.833,222.609h-220.44h-0.001V2.167C278.461,0.744,267.317,0,256,0
-		c-11.319,0-22.461,0.744-33.391,2.167v220.44v0.001H2.167C0.744,233.539,0,244.683,0,256c0,11.319,0.744,22.461,2.167,33.391
-		h220.44h0.001v220.442C233.539,511.256,244.681,512,256,512c11.317,0,22.461-0.743,33.391-2.167v-220.44v-0.001h220.442
-		C511.256,278.461,512,267.319,512,256C512,244.683,511.256,233.539,509.833,222.609z"/>
-	<path style="fill:#D80027;" d="M322.783,322.784L322.783,322.784L437.019,437.02c5.254-5.252,10.266-10.743,15.048-16.435
-		l-97.802-97.802h-31.482V322.784z"/>
-	<path style="fill:#D80027;" d="M189.217,322.784h-0.002L74.98,437.019c5.252,5.254,10.743,10.266,16.435,15.048l97.802-97.804
-		V322.784z"/>
-	<path style="fill:#D80027;" d="M189.217,189.219v-0.002L74.981,74.98c-5.254,5.252-10.266,10.743-15.048,16.435l97.803,97.803
-		H189.217z"/>
-	<path style="fill:#D80027;" d="M322.783,189.219L322.783,189.219L437.02,74.981c-5.252-5.254-10.743-10.266-16.435-15.047
-		l-97.802,97.803V189.219z"/>
-</g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
-
-                            </span>
-                            <span class="nav__item-name hide-for-user">EN</span>
-                        </button>
-                    </li>
-                </ul>
-
                 <a href="tel:+48696999905" class="header__phone">
                     <i class="material-icons header__phone-icon">phone</i>
                     <span>+48 696 999 905</span>
@@ -149,6 +123,7 @@
     </header>
     <section class="section home" id="home">
         <h1>LDDENT Stomatologia</h1>
+        <button class="button">Umów się na wizytę</button>
         <a href="#about" class="home__link">
             <svg class="home__icon more-arrows">
                 <polygon class="arrow-top" points="37.6,27.9 1.8,1.3 3.3,0 37.6,25.3 71.9,0 73.7,1.3 "/>
@@ -224,55 +199,32 @@
                     </ul>
                 </div>
                 <div class="person-description container" id="second-person-details">
-                    <p class="person-description__paragraph">Jestem lekarzem stomatologiem z wieloletnim doświadczeniem.
-                        W roku 1989 ukończyłam studia na
-                        wydziale
-                        lekarsko–dentystycznym na Uniwersytecie Medycznym w Lublinie. Od 1993 roku prowadzę prywatny
-                        gabinet
-                        ogólnostomatologiczny, w którym oferuję Pacjentom szeroki zakres usług: od profilaktyki do
-                        protetyki. </p>
-                    <p class="person-description__paragraph">Praca jest moją pasją, dlatego dbam o systematyczne
-                        poszerzanie wiedzy, poprzez uczestnictwo w
-                        szkoleniach dla stomatologów i studiowanie fachowej literatury. Pozwala mi to na stosowanie
-                        nowoczesnych metod leczenia, zgodnych z aktualną wiedzą medyczną. Do każdego Pacjenta i jego
-                        problemów podchodzę indywidualnie, zapewniając profesjonalną obsługę i przyjazną atmosferę.
-                        Chętnie
-                        przyjmuję dzieci w każdym wieku.</p>
-                    <h3 class="person-description__title"><span>Zakres wykonywanych zabiegów</span></h3>
-                    <ul class="description-list person-description__list">
-                        <li class="description-list__item">stomatologia zachowawcza</li>
-                        <li class="description-list__item">endodoncja</li>
-                        <li class="description-list__item">protetyka</li>
-                        <li class="description-list__item">usuwanie zębów</li>
-                        <li class="description-list__item">zabiegi profilaktyczne</li>
-                        <li class="description-list__item">wybielanie zębów</li>
-                    </ul>
+                    <p class="person-description__paragraph">
+                        Absolwentka wydziału lekarsko–dentystycznego na Lwowskim Uniwersytecie Medycznym. W swojej pracy
+                        zajmuje się głównie leczeniem kanałowym, stomatologią zachowawczą oraz usuwaniem zębów.
+                    </p>
+                    <p class="person-description__paragraph">
+                        <strong>Przyjmuje w poniedziałki i czwartki. </strong>
+                    </p>
                 </div>
                 <div class="person-description container" id="third-person-details">
                     <p class="person-description__paragraph">Jestem lekarzem stomatologiem z wieloletnim doświadczeniem.
-                        W roku 1989 ukończyłam studia na
-                        wydziale
-                        lekarsko–dentystycznym na Uniwersytecie Medycznym w Lublinie. Od 1993 roku prowadzę prywatny
-                        gabinet
-                        ogólnostomatologiczny, w którym oferuję Pacjentom szeroki zakres usług: od profilaktyki do
-                        protetyki. </p>
-                    <p class="person-description__paragraph">Praca jest moją pasją, dlatego dbam o systematyczne
-                        poszerzanie wiedzy, poprzez uczestnictwo w
-                        szkoleniach dla stomatologów i studiowanie fachowej literatury. Pozwala mi to na stosowanie
-                        nowoczesnych metod leczenia, zgodnych z aktualną wiedzą medyczną. Do każdego Pacjenta i jego
-                        problemów podchodzę indywidualnie, zapewniając profesjonalną obsługę i przyjazną atmosferę.
-                        Chętnie
-                        przyjmuję dzieci w każdym wieku.</p>
+                        Dyplomowana higienistka i asystentka stomatologiczna - absolwentka Studium Medycznego w
+                        Krasnymstawie na wydziale higienistek stomatologicznych. Wykonuje zabiegi profilaktyczne i
+                        współtworzy zespół z lekarzami. Specjalizuje się w wykonywaniu profesjonalnych zabiegów
+                        profilaktycznych oraz w czynnej asyście lekarzom przy wszystkich dziedzinach stomatologii. W
+                        LDdent Stomatologia pracuje od 2002 roku.</p>
                     <h3 class="person-description__title"><span>Zakres wykonywanych zabiegów</span></h3>
-                    <ul class="description-list person-description__list">
-                        <li class="description-list__item">stomatologia zachowawcza</li>
-                        <li class="description-list__item">endodoncja</li>
-                        <li class="description-list__item">protetyka</li>
-                        <li class="description-list__item">usuwanie zębów</li>
-                        <li class="description-list__item">zabiegi profilaktyczne</li>
-                        <li class="description-list__item">wybielanie zębów</li>
+                    <ul class="range person-description__list">
+                        <li class="range__item">impregnacja zębów</li>
+                        <li class="range__item">lakierowanie zębów</li>
+                        <li class="range__item">lakowanie zębów</li>
+                        <li class="range__item"></li>
+                        <li class="range__item"></li>
+                        <li class="range__item"></li>
                     </ul>
                 </div>
+
             </div>
         </div>
     </section>
@@ -283,7 +235,8 @@
 
             <ul class="offer-puzzles">
                 <li class="offer-puzzles__item">
-                    <button class="offer-puzzles__button offer-puzzles__button--active">
+                    <button class="offer-puzzles__button offer-puzzles__button--active" data-offer="offer-1"
+                            data-tippy-content="Stomatologia zapobiegawcza">
                         <svg xmlns="http://www.w3.org/2000/svg" width="79.35" height="95.34" viewBox="0 0 79.35 95.34">
                             <g transform="translate(-324.361 -942.579)">
                                 <g transform="translate(326.536 944.693)">
@@ -299,7 +252,8 @@
                     </button>
                 </li>
                 <li class="offer-puzzles__item">
-                    <button class="offer-puzzles__button offer-puzzles__button--third">
+                    <button class="offer-puzzles__button offer-puzzles__button--third" data-offer="offer-2"
+                            data-tippy-content="Zabiegi profilaktyczne">
                         <svg xmlns="http://www.w3.org/2000/svg" width="79.35" height="95.342"
                              viewBox="0 0 79.35 95.342">
                             <g transform="translate(-532.09 -2650.358)" opacity="0.798">
@@ -319,7 +273,8 @@
                     </button>
                 </li>
                 <li class="offer-puzzles__item">
-                    <button class="offer-puzzles__button offer-puzzles__button--secondary">
+                    <button class="offer-puzzles__button offer-puzzles__button--secondary" data-offer="offer-3"
+                            data-tippy-content="Protetyka">
                         <svg xmlns="http://www.w3.org/2000/svg" width="75" height="90.41" viewBox="0 0 75 90.41">
                             <g transform="translate(-193.285 -801.619)" opacity="0.8">
                                 <path d="M246.037,801.619c.48.044.96.088,1.439.135a20.447,20.447,0,0,1,13.229,5.975,25.042,25.042,0,0,1,5.243,8.216,32.553,32.553,0,0,1,2.065,8.124,34.937,34.937,0,0,1,.164,7.113,37.8,37.8,0,0,1-5.509,16.9,43.677,43.677,0,0,0-5.817,15.5c-.3,1.773-.485,3.565-.733,5.347a63.665,63.665,0,0,1-3.522,14.942,17.869,17.869,0,0,1-3.01,5.192,8.108,8.108,0,0,1-4.428,2.807,6.23,6.23,0,0,1-5.967-1.826,13.117,13.117,0,0,1-2.952-4.56,89.572,89.572,0,0,1-3.215-9.141,29.6,29.6,0,0,1-.856-5.087,19.627,19.627,0,0,0-1.176-5.35c-.053-.133-.111-.264-.194-.462-.072.148-.124.245-.166.346a15.956,15.956,0,0,0-1.05,4.093,40.683,40.683,0,0,1-1.143,6.883c-.54,1.759-1.2,3.482-1.782,5.227a30.992,30.992,0,0,1-1.991,4.9,11.222,11.222,0,0,1-3.141,3.886,6.429,6.429,0,0,1-7.644-.014,11.563,11.563,0,0,1-3.408-3.833,30.385,30.385,0,0,1-2.971-7.486,73.249,73.249,0,0,1-1.875-9.34c-.318-2.275-.558-4.562-.948-6.824a41.2,41.2,0,0,0-3.818-11.589c-.983-1.95-2.13-3.816-3.163-5.742a36.833,36.833,0,0,1-3.955-11.842,35.372,35.372,0,0,1-.436-6.7,31.471,31.471,0,0,1,4.3-15.426,19.932,19.932,0,0,1,14.466-9.94c1.085-.185,2.192-.246,3.288-.365a.745.745,0,0,0,.15-.05h1.659c.084.017.166.042.251.051,1,.1,2.006.148,2.995.307a27.175,27.175,0,0,1,9.826,3.655.9.9,0,0,0,1.1-.005,27.1,27.1,0,0,1,11.7-3.883c.447-.039.893-.084,1.338-.125Zm-15.277,9c-.39-.273-.775-.551-1.17-.815-5.035-3.367-10.5-4.966-16.58-4.01a17.608,17.608,0,0,0-5.409,1.693,16.621,16.621,0,0,0-6.425,6.083,27.13,27.13,0,0,0-3.98,13.469,31.515,31.515,0,0,0,.376,6.509,33.007,33.007,0,0,0,4.269,11.853,55.223,55.223,0,0,1,3.98,7.884,47.565,47.565,0,0,1,2.9,10.606c.348,2.326.6,4.665.951,6.991a59.548,59.548,0,0,0,1.966,8.876,22.03,22.03,0,0,0,2.595,5.851,6.635,6.635,0,0,0,2.029,2.065,2.528,2.528,0,0,0,3.4-.4,10.114,10.114,0,0,0,2.212-3.547c.648-1.628,1.2-3.3,1.817-4.936a27.137,27.137,0,0,0,1.619-5.924c.215-1.575.378-3.159.643-4.725a15.562,15.562,0,0,1,1.949-5.522,3.291,3.291,0,0,1,5.788.017,19.071,19.071,0,0,1,2.263,7.552c.172,1.357.345,2.716.573,4.064a25.234,25.234,0,0,0,1.41,4.647c.691,1.836,1.337,3.691,2.083,5.5a8.266,8.266,0,0,0,2.08,3.042,2.433,2.433,0,0,0,2.852.423,5.213,5.213,0,0,0,1.853-1.524,15.607,15.607,0,0,0,2.426-4.5,62.812,62.812,0,0,0,3.053-13.43c.269-1.924.473-3.859.8-5.772a48.014,48.014,0,0,1,5.39-15.078c.986-1.787,2.055-3.537,2.92-5.381a32.448,32.448,0,0,0,3.022-13.766,29.713,29.713,0,0,0-.589-6.024,25.4,25.4,0,0,0-3.507-8.944,16.137,16.137,0,0,0-6.421-5.985,19.9,19.9,0,0,0-11.849-1.711,23.324,23.324,0,0,0-8.567,3.1C232.563,809.4,231.685,810.021,230.76,810.623Z"
@@ -333,7 +288,8 @@
                     </button>
                 </li>
                 <li class="offer-puzzles__item">
-                    <button class="offer-puzzles__button offer-puzzles__button--third">
+                    <button class="offer-puzzles__button offer-puzzles__button--third" data-offer="offer-4"
+                            data-tippy-content="Leczenie kanałowe">
                         <svg xmlns="http://www.w3.org/2000/svg" width="79.349" height="95.34"
                              viewBox="0 0 79.349 95.34">
                             <g transform="translate(-211.556 -942.579)" opacity="0.8">
@@ -355,7 +311,8 @@
                     </button>
                 </li>
                 <li class="offer-puzzles__item">
-                    <button class="offer-puzzles__button offer-puzzles__button--secondary">
+                    <button class="offer-puzzles__button offer-puzzles__button--secondary" data-offer="offer-5"
+                            data-tippy-content="Usuwanie zębów">
                         <svg xmlns="http://www.w3.org/2000/svg" width="75" height="90.393" viewBox="0 0 75 90.393">
                             <g transform="translate(-766 -2745)" opacity="0.8">
                                 <g transform="translate(766 2745)">
@@ -370,7 +327,7 @@
                     </button>
                 </li>
                 <li class="offer-puzzles__item">
-                    <button class="offer-puzzles__button">
+                    <button class="offer-puzzles__button" data-offer="offer-6" data-tippy-content="Radiografia cyfrowa">
                         <svg xmlns="http://www.w3.org/2000/svg" width="79.35" height="95.341"
                              viewBox="0 0 79.35 95.341">
                             <g transform="translate(28.623 -802.291)" opacity="0.801">
@@ -388,7 +345,8 @@
                     </button>
                 </li>
                 <li class="offer-puzzles__item">
-                    <button class="offer-puzzles__button offer-puzzles__button--fourth">
+                    <button class="offer-puzzles__button offer-puzzles__button--fourth" data-offer="offer-7"
+                            data-tippy-content="Wybielanie zębów">
                         <svg xmlns="http://www.w3.org/2000/svg" width="75" height="82.843" viewBox="0 0 75 82.843">
                             <g transform="translate(-74.456 -542.947)" opacity="0.8">
                                 <path d="M74.456,568.972a3.154,3.154,0,0,0,.049-.389,29.09,29.09,0,0,1,2.07-10.687,22.482,22.482,0,0,1,3.714-6.251,17.327,17.327,0,0,1,5.687-4.492,19.155,19.155,0,0,1,5.785-1.719,24.747,24.747,0,0,1,3.448-.261,22.305,22.305,0,0,1,9.042,1.923c1.182.524,2.312,1.167,3.455,1.775a.436.436,0,0,0,.5-.033,25.459,25.459,0,0,1,7.249-3.019,23.3,23.3,0,0,1,6.589-.6c.6.026,1.192.12,1.787.18.067.007.135,0,.243,0l-.276-1.084c.131.041.213.06.29.091q3.254,1.306,6.5,2.618a.57.57,0,0,0,.6-.062q2.88-1.931,5.773-3.841c.079-.052.162-.1.283-.176a1.644,1.644,0,0,1,.029.256q-.086,1.411-.179,2.822c-.042.624-.092,1.247-.136,1.871-.051.729-.089,1.46-.155,2.187a.748.748,0,0,0,.312.744c1.821,1.422,3.628,2.862,5.438,4.3.074.058.142.124.238.21-.112.034-.192.061-.274.082l-3.516.883c-.387.1-.4.1-.212.495a24.754,24.754,0,0,1,1.74,5.043c.142.618.265,1.242.372,1.868.043.248.131.273.352.2,1.6-.515,3.212-1.018,4.818-1.524.08-.025.161-.044.307-.083-.183.515-.341.969-.5,1.421q-1.271,3.508-2.543,7.015c-.4,1.111-.8,2.224-1.208,3.333a.414.414,0,0,0,.062.436q3.545,4.946,7.082,9.9c.05.07.092.146.178.282-.278,0-.5.008-.722,0-.66-.027-1.319-.069-1.979-.09-.855-.028-1.71-.039-2.564-.065q-2.5-.076-4.994-.161c-.431-.014-.863-.046-1.294-.039a.453.453,0,0,0-.331.186c-.788,1.368-1.611,2.718-2.325,4.124-.733,1.445-1.41,2.924-2.015,4.426a34.253,34.253,0,0,0-2,7.093c-.247,1.459-.423,2.93-.612,4.4-.316,2.458-.708,4.9-1.242,7.325a39.821,39.821,0,0,1-2.1,6.929,15.663,15.663,0,0,1-2.63,4.412,7.011,7.011,0,0,1-4.509,2.529,5.485,5.485,0,0,1-4.255-1.3,10.385,10.385,0,0,1-2.407-3.057,27.556,27.556,0,0,1-1.9-4.616c-.506-1.5-1.067-2.973-1.533-4.48a23.855,23.855,0,0,1-.86-4.729,18.946,18.946,0,0,0-1.065-5.03c-.035-.09-.076-.178-.115-.267-.011-.025-.024-.048-.064-.125-.074.156-.126.251-.166.352a14.262,14.262,0,0,0-.967,4.107,32.055,32.055,0,0,1-2.219,9.358c-.467,1.161-.825,2.366-1.292,3.527a13.67,13.67,0,0,1-2.458,4.144,5.948,5.948,0,0,1-3.794,2.119,6.028,6.028,0,0,1-3.921-.911,10.052,10.052,0,0,1-3.36-3.668,29.9,29.9,0,0,1-2.947-7.906,74.7,74.7,0,0,1-1.453-7.851c-.294-2.13-.475-4.275-.935-6.382a41.613,41.613,0,0,0-2.415-7.548,46.769,46.769,0,0,0-2.909-5.549,33.288,33.288,0,0,1-4.466-13.725c-.084-.9-.087-1.812-.13-2.719-.006-.121-.033-.241-.05-.362Zm46.506-11.409c.092-.122.156-.213.227-.3q2.234-2.683,4.472-5.361a.477.477,0,0,0,.111-.483c-.189-.652-.374-1.306-.547-1.962a.413.413,0,0,0-.363-.323,18.919,18.919,0,0,0-5.493-.4,19.945,19.945,0,0,0-4.707.948,22.886,22.886,0,0,0-6.489,3.4.328.328,0,0,1-.462.007,24.283,24.283,0,0,0-4.826-2.782,19.709,19.709,0,0,0-7.762-1.644,20.767,20.767,0,0,0-3.31.31,14.515,14.515,0,0,0-5.146,1.784,15.733,15.733,0,0,0-5.8,6.244,25.183,25.183,0,0,0-2.89,12.1,28.626,28.626,0,0,0,.706,6.347,29.153,29.153,0,0,0,3.273,8.427A57.963,57.963,0,0,1,85,589.589a40.581,40.581,0,0,1,2.929,9.208c.38,2.079.615,4.184.909,6.278a65.36,65.36,0,0,0,1.808,8.992,23.072,23.072,0,0,0,2.153,5.364,6.7,6.7,0,0,0,2.141,2.41,2.2,2.2,0,0,0,2.85-.141,6.765,6.765,0,0,0,.754-.811,11.412,11.412,0,0,0,1.626-3.018c.6-1.6,1.155-3.221,1.743-4.828a20.707,20.707,0,0,0,1.085-4.22c.188-1.326.319-2.661.528-3.983a14.932,14.932,0,0,1,1.562-4.865,4.132,4.132,0,0,1,1.039-1.352,2.981,2.981,0,0,1,4.263.7,11.868,11.868,0,0,1,1.274,2.725,24.533,24.533,0,0,1,1,5.238,22.444,22.444,0,0,0,1.041,5.041c.483,1.391.958,2.787,1.482,4.163.408,1.07.858,2.125,1.343,3.162a6.583,6.583,0,0,0,1.352,1.883,2.168,2.168,0,0,0,2.537.558,3.855,3.855,0,0,0,.839-.495,7.953,7.953,0,0,0,2.109-2.716,26.586,26.586,0,0,0,2.127-5.829,79.511,79.511,0,0,0,1.909-11.014,40.268,40.268,0,0,1,1.537-7.29,1.265,1.265,0,0,0,0-.772c-.26-.87-.507-1.745-.759-2.618q-1.265-4.386-2.525-8.772a.563.563,0,0,0-.411-.425c-1.526-.5-3.048-1.011-4.571-1.518-.36-.12-.369-.1-.389.289-.033.642-.08,1.284-.122,1.925-.064.976-.138,1.951-.185,2.927a.553.553,0,0,0,.187.395c1.165.943,2.342,1.871,3.516,2.8l1.158.918c-.172.05-.285.088-.4.117q-2.681.677-5.364,1.349a.484.484,0,0,0-.384.341c-.654,1.78-1.319,3.556-1.982,5.333-.025.067-.063.13-.118.242l-.931-1.477c-.747-1.187-1.489-2.377-2.247-3.557a.559.559,0,0,0-.364-.242c-.853-.056-1.707-.084-2.561-.118-1.021-.04-2.043-.074-3.064-.115a2.668,2.668,0,0,1-.342-.063c.074-.105.119-.179.173-.243q1.8-2.15,3.6-4.3a.491.491,0,0,0,.108-.505c-.509-1.781-1-3.566-1.5-5.35-.028-.1-.038-.209-.064-.36.136.048.219.074.3.106q2.592,1.036,5.183,2.076a.5.5,0,0,0,.517-.041c1.312-.878,2.63-1.748,3.946-2.622.067-.044.124-.1.233-.2l-6.119-2.041c.114-.09.172-.141.235-.184l3.33-2.256q3.385-2.292,6.773-4.581a.518.518,0,0,0,.257-.477c.012-2.5.035-5.009.049-7.514.009-1.535.007-3.07.01-4.605,0-.091.01-.182.018-.307.1.062.161.095.215.137q1.307,1.013,2.611,2.029,3.516,2.74,7.029,5.484a.493.493,0,0,0,.51.09c.93-.307,1.861-.61,2.8-.89.249-.074.283-.189.248-.417a23.789,23.789,0,0,0-1.755-6.11c-.152-.341-.324-.672-.488-1.008l-.085.009-2.5,6.706-.083-.007c-.142-.22-.285-.44-.425-.661q-1.753-2.789-3.51-5.576a.429.429,0,0,0-.286-.185q-1.7-.1-3.405-.163c-1.092-.045-2.184-.075-3.276-.118C121.492,557.624,121.251,557.59,120.962,557.563Zm5.761,6.221c-.012.154-.022.231-.023.308-.017,1.3-.039,2.592-.048,3.888-.009,1.385-.015,2.77,0,4.155a.68.68,0,0,1-.343.647q-3.331,2.231-6.648,4.483c-.076.052-.147.111-.265.2.16.058.264.1.37.133q3.791,1.264,7.583,2.523a.6.6,0,0,1,.446.452q1.1,3.881,2.233,7.755c.026.088.064.172.115.31.123-.151.215-.254.3-.364q2.318-3.14,4.628-6.285a.739.739,0,0,1,.719-.364c.738.053,1.478.079,2.217.1,1.427.044,2.855.079,4.282.119.1,0,.193.025.289.025.48,0,.96,0,1.494,0-.072-.12-.114-.2-.168-.278q-2.363-3.3-4.73-6.6a.446.446,0,0,1-.068-.465c.187-.486.359-.977.537-1.466q1.131-3.122,2.261-6.245c.028-.077.039-.159.066-.271-.114.027-.182.038-.248.059q-3.859,1.222-7.717,2.451a.632.632,0,0,1-.655-.113q-2.84-2.229-5.694-4.442C127.363,564.271,127.07,564.049,126.723,563.783Zm-.3-16.547c.028.146.039.238.063.326q.6,2.14,1.2,4.279a.441.441,0,0,1-.094.456c-.863,1.024-1.718,2.055-2.573,3.085-.153.185-.3.374-.482.6.292.029.517.063.743.073,1.355.058,2.71.1,4.064.172a.515.515,0,0,1,.356.2c.69,1.076,1.363,2.163,2.042,3.246.166.265.338.526.54.839.084-.206.146-.349.2-.495.486-1.305.975-2.609,1.45-3.919a.593.593,0,0,1,.471-.424c1.414-.343,2.822-.706,4.233-1.064.1-.025.193-.06.34-.106-.3-.243-.561-.453-.821-.659q-1.451-1.149-2.9-2.3a.477.477,0,0,1-.238-.438c.049-.579.084-1.159.125-1.739q.1-1.383.191-2.766a1.826,1.826,0,0,0-.029-.279c-.119.072-.195.114-.267.162-1.213.8-2.429,1.6-3.636,2.415a.579.579,0,0,1-.61.065c-1.346-.552-2.7-1.09-4.047-1.631C126.658,547.3,126.568,547.281,126.426,547.236ZM116.2,593.4c.067-.146.108-.221.137-.3.354-.95.71-1.9,1.054-2.853a.464.464,0,0,1,.367-.328c.968-.235,1.934-.481,2.9-.725.1-.025.194-.059.346-.106-.105-.094-.165-.153-.23-.205-.78-.619-1.556-1.245-2.346-1.851a.59.59,0,0,1-.238-.591c.077-.957.137-1.915.2-2.872.007-.1,0-.2,0-.365-.142.083-.225.127-.3.178-.817.539-1.636,1.075-2.447,1.623a.554.554,0,0,1-.586.069c-.936-.39-1.88-.76-2.822-1.136-.067-.027-.139-.043-.253-.077.034.136.052.22.075.3.273.986.553,1.969.813,2.958a.527.527,0,0,1-.073.407c-.546.68-1.113,1.343-1.673,2.013-.155.186-.308.373-.5.6a2.245,2.245,0,0,0,.279.052c1.021.039,2.042.081,3.063.108a.457.457,0,0,1,.43.237c.31.513.632,1.019.951,1.526C115.622,592.495,115.892,592.916,116.2,593.4Z"
@@ -399,7 +357,17 @@
                 </li>
             </ul>
 
-            <div class="offer__description">
+            <div class="offer__description" id="offer-1">
+                <h3 class="person-description__title"><span>Stomatologia zapobiegawcza</span></h3>
+
+                <ul class="description-list description-list--no-wrap">
+                    <li class="description-list__item">Wypełnianie ubytków</li>
+                    <li class="description-list__item">Estetyczna rekonstrukcja zębów przednich</li>
+                </ul>
+
+            </div>
+
+            <div class="offer__description" id="offer-2">
                 <h3 class="person-description__title"><span>Zabiegi profilaktyczne</span></h3>
 
                 <ul class="description-list description-list--no-wrap">
@@ -413,8 +381,55 @@
                     </li>
                     <li class="description-list__item">Lakowanie - uszczelnianie bruzd</li>
                 </ul>
-
             </div>
+
+            <div class="offer__description" id="offer-3">
+                <h3 class="person-description__title"><span>Protetyka</span></h3>
+
+                <ul class="description-list description-list--no-wrap">
+                    <li class="description-list__item">Wykonywanie protez akrylowych, szkieletowych, elastycznych</li>
+                    <li class="description-list__item">Wykonywanie koron i mostów licowanych porcelaną lub
+                        pełnoceramicznych
+                    </li>
+                    <li class="description-list__item">Wykonywanie wkładów i nakładów</li>
+                </ul>
+            </div>
+
+            <div class="offer__description" id="offer-4">
+                <h3 class="person-description__title"><span>Leczenie kanałowe</span></h3>
+
+                <ul class="description-list description-list--no-wrap">
+                    <li class="description-list__item">Leczenie z wykorzystaniem rekomendowanych technik opracowywania i
+                        wypełniania kanałów korzeniowych
+                    </li>
+                </ul>
+            </div>
+
+            <div class="offer__description" id="offer-5">
+                <h3 class="person-description__title"><span>Usuwanie zębów</span></h3>
+
+                <ul class="description-list description-list--no-wrap">
+                    <li class="description-list__item">Bezbolesne usuwanie zębów, także ósemek</li>
+                </ul>
+            </div>
+
+            <div class="offer__description" id="offer-6">
+                <h3 class="person-description__title"><span>Radiografia cyfrowa</span></h3>
+
+                <ul class="description-list description-list--no-wrap">
+                    <li class="description-list__item">Wykonywanie wysokiej jakości cyfrowych zdjęć wewnątrzustnych
+                    </li>
+                </ul>
+            </div>
+
+            <div class="offer__description" id="offer-7">
+                <h3 class="person-description__title"><span>Wybielanie zębów</span></h3>
+
+                <ul class="description-list description-list--no-wrap">
+                    <li class="description-list__item">Wybielanie zębów żywych i martwych</li>
+                </ul>
+            </div>
+
         </div>
     </section>
 
@@ -487,7 +502,8 @@
                     </span>
                 </li>
                 <li class="payments-list__item">
-                    <a href="/" class="payments-list__link">
+                    <a href="https://www.mediraty.pl/formularz/index.php" target="_blank" rel="noopener noreferrer"
+                       class="payments-list__link">
                         <span class="payments-list__icon">
                             <img src="${require('./assets/images/installments.png')}" class="payments-list__image"
                                  alt="installments">
@@ -508,87 +524,32 @@
         <h2 class="section__title">Kontakt</h2>
 
         <div class="container">
-
-            <form action="" class="contact-form" autocomplete="off">
-                <div class="contact-form__content">
-                    <div class="contact-form__column">
-                        <div class="contact-form__group contact-form__group--invalid">
-                            <label for="name" class="contact-form__label contact-form__label--invalid">Imię i
-                                nazwisko</label>
-                            <input type="text" id="name" name="name"
-                                   class="contact-form__input contact-form__input--invalid">
-                            <span class="contact-form__error">This file is require as fuck</span>
-                        </div>
-                    </div>
-
-
-                    <div class="contact-form__column">
-                        <div class="contact-form__group">
-                            <label for="phone" class="contact-form__label">Numer telefonu</label>
-                            <input type="text" id="phone" name="phone" class="contact-form__input">
-                        </div>
-                    </div>
-
-                    <div class="contact-form__column">
-                        <span class="contact-form__label">Temat</span>
-
-                        <div class="contact-form__group contact-form__group--column">
-                            <input type="radio" class="contact-form__radio" name="subject" id="subject-1" value="1"
-                                   checked>
-                            <label for="subject-1">Chcę zadać pytanie</label>
-                        </div>
-                        <div class="contact-form__group contact-form__group--column">
-                            <input type="radio" class="contact-form__radio" name="subject" id="subject-2" value="2">
-                            <label for="subject-2">Chcę zadać pytanie</label>
-                        </div>
-                    </div>
-
-
-                    <div>
-                        <div class="contact-form__column">
-                            <div class="contact-form__group">
-                                <label for="email" class="contact-form__label">Adres e-mail</label>
-                                <input type="text" id="email" name="email" class="contact-form__input">
-                            </div>
-                        </div>
-
-                        <div class="contact-form__column">
-                            <div class="contact-form__group">
-                                <label for="content" class="contact-form__label">Treść wiadomości</label>
-                                <textarea type="text" id="content" name="phone"
-                                          class="contact-form__textarea"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <footer class="contact-form__footer">
-                    <button class="contact-form__button">Wyślij</button>
-                </footer>
-            </form>
-
         </div>
     </section>
 
 </div>
 
 <section class="contact-info">
-    <div class="contact-info__section contact-info__section--primary">
-        <div>
-            <h2 class="contact-info__title">Adres</h2>
-            <p><strong>LDdent Stomatologia</strong></p>
-            <p>ul.czworobok<br>22-200 Włodawa<br>tel. <a class="contact-info__link" href="tel:+48696999905">(+48) 696 999 905</a></p>
+    <div class="container contact-info__container">
+        <div class="contact-info__section contact-info__section--primary">
+            <div>
+                <h2 class="contact-info__title">Adres</h2>
+                <p><strong>LDdent Stomatologia</strong></p>
+                <p>ul.czworobok<br>22-200 Włodawa<br>tel. <a class="contact-info__link" href="tel:+48696999905">(+48)
+                    696 999 905</a></p>
+            </div>
         </div>
-    </div>
-    <div class="contact-info__section contact-info__section--secondary">
-        <div>
-            <h2 class="contact-info__title">Godziny otwarcia</h2>
-            <p><strong>Poniedziałek:</strong> <span>8:00 - 12:00, 15:00-18.00</span></p>
-            <p><strong>Wtorek:</strong> <span>8:00 - 12:00, 15:00-18.00</span></p>
-            <p><strong>Środa:</strong> <span>8:00 - 12:00, 15:00-18.00</span></p>
-            <p><strong>Czwartek:</strong> <span> 8:00 - 12:00, 15:00-18.00</span></p>
-            <p><strong>Piątek:</strong> <span>8:00 - 12:00, 15:00-18.00</span></p>
-            <p><strong>Sobota:</strong> <span>9:00 - 11:00</span></p>
-            <p>W celu ustalenia wizyty w innych godzinach, proszę o kontakt.</p>
+        <div class="contact-info__section contact-info__section--secondary">
+            <div>
+                <h2 class="contact-info__title">Godziny otwarcia</h2>
+                <p><strong>Poniedziałek:</strong> <span>8:00 - 12:00, 15:00-18.00</span></p>
+                <p><strong>Wtorek:</strong> <span>8:00 - 12:00, 15:00-18.00</span></p>
+                <p><strong>Środa:</strong> <span>8:00 - 12:00, 15:00-18.00</span></p>
+                <p><strong>Czwartek:</strong> <span> 8:00 - 12:00, 15:00-18.00</span></p>
+                <p><strong>Piątek:</strong> <span>8:00 - 12:00, 15:00-18.00</span></p>
+                <p><strong>Sobota:</strong> <span>9:00 - 11:00</span></p>
+                <p>W celu ustalenia wizyty w innych godzinach, proszę o kontakt.</p>
+            </div>
         </div>
     </div>
 </section>
@@ -605,6 +566,8 @@
         reserved. | by <a href="http://bpcoders.pl" class="footer__link" target="_blank">BPCoders</a></p>
 </footer>
 
+<script src="scripts/anime.min.js"></script>
+<script src="scripts/particles.js"></script>
 <!-- webpack inject script file / don't modify this line -->
 <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>

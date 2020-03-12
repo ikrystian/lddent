@@ -8,7 +8,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   entry: {
-    main: ['./src/scripts/index.js', './src/styles/main.scss'],
+    main: ['./src/scripts/anime.min.js', './src/scripts/particles.js', './src/scripts/index.js', './src/styles/main.scss'],
   },
   output: {
     filename: '[name].[hash].js',
