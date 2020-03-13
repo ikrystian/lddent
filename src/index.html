@@ -520,18 +520,18 @@
             <h2 class="section__title">Kontakt</h2>
 
             <div class="contact__container container">
-                <form class="contact-form">
+                <form class="contact-form" autocomplete="off">
                     <div class="contact-form__group">
-                        <label for="name">Imię i nazwisko</label>
-                        <input type="text" id="name">
+                        <label class="contact-form__label" for="name">Imię i nazwisko</label>
+                        <input class="contact-form__input" type="text" id="name">
                     </div>
                     <div class="contact-form__group">
-                        <label for="phone">Numer telefonu</label>
-                        <input type="text" id="phone">
+                        <label class="contact-form__label" for="phone">Numer telefonu</label>
+                        <input class="contact-form__input" type="text" id="phone">
                     </div>
                     <div class="contact-form__group">
-                        <label for="content">Treść wiadomości</label>
-                        <textarea name="" id="content" cols="30" rows="10"></textarea>
+                        <label class="contact-form__label" for="content">Treść wiadomości</label>
+                        <textarea name="" class="contact-form__text-area" id="content" cols="30" rows="10"></textarea>
                     </div>
                     <div class="contact-form__footer">
                         <button type="reset">Wyczyść</button>
@@ -580,13 +580,10 @@
             reserved. | by <a href="http://bpcoders.pl" class="footer__link" target="_blank">BPCoders</a></p>
     </footer>
 
-    <button type="button" data-tippy-content="Kliknij aby zaakceptować" class="cookie-info">
-        <span><img src="http://sztukanauki.eu/wp-content/themes/wordpressify/img/cookie-monster.png" alt="">Bardzo ważna informacja o ciasteczkach ¯\_(ツ)_/¯</span>
-    </button>
-
 </main>
 <script src="scripts/anime.min.js"></script>
 <script src="scripts/particles.js"></script>
+<script src="scripts/js.cookie.js" type="module"></script>
 <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <!-- webpack inject script file / don't modify this line -->
 <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>

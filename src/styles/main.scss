@@ -625,11 +625,26 @@ body {
 .contact-form {
   @include res(tab) {
     margin-right: 2rem;
+    min-width: 400px;
   }
 
   &__group {
     display: flex;
     flex-direction: column;
+
+    &:not(:last-of-type) {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__label {
+    text-align: right;
+  }
+
+  &__input,
+  &__textarea {
+    padding: 0.5rem 1rem;
+    font-size: 1em;
   }
 }
 
@@ -1169,7 +1184,7 @@ polygon {
   left: 0;
   right: 0;
   display: flex;
-  z-index: 12;
+  z-index: 13;
   background-color: var(--primary-color);
   color: #fff;
   padding: 0.25rem 0.5rem;

@@ -2,7 +2,7 @@ import $ from 'jquery';
 import scrollSpy from 'simple-scrollspy';
 import tippy, {followCursor} from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
-
+import Cookies from 'js-cookie'
 
 window.onload = function () {
     scrollSpy('#main-menu', {
@@ -142,6 +142,17 @@ particlesJS("particles-js", {
     "retina_detect": true
 });
 
-$('.cookie-info').on('click', function() {
-   $(this).fadeOut();
+
+
+$('main').on('click', '.cookie-info', function () {
+    Cookies.set('cookies', 'accept', {expires: 365});
+    $(this).remove();
 });
+
+const cookieContent = '    <button type="button" data-tippy-content="Kliknij aby zaakceptować" class="cookie-info">\n' +
+    '        <span><img src="http://sztukanauki.eu/wp-content/themes/wordpressify/img/cookie-monster.png" alt="">Bardzo ważna informacja o ciasteczkach ¯\\_(ツ)_/¯</span>\n' +
+    '    </button>';
+
+if (Cookies.get('cookies') !== 'accept') {
+    $('main').prepend(cookieContent);
+}

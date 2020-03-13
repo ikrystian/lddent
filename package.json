@@ -38,6 +38,7 @@
   "dependencies": {
     "animejs": "^3.1.0",
     "jquery": "^3.4.1",
+    "js-cookie": "^2.2.1",
     "normalize-scss": "^7.0.1",
     "particles.js": "^2.0.0",
     "simple-scrollspy": "^2.0.3",
