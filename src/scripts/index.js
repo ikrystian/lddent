@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import scrollSpy from 'simple-scrollspy';
-import tippy from 'tippy.js';
+import tippy, {followCursor} from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 
 
@@ -24,22 +24,6 @@ person.on('click', function () {
     description.hide();
     $(descriptionContainer).slideDown();
 });
-let recentScroll = false;
-
-$(window).scroll(function () {
-    let header = $('.header');
-    let scroll = header.offset().top;
-
-    if (scroll >= 500) {
-        header.addClass('header--no-margin');
-    } else {
-        header.removeClass('header--no-margin');
-    }
-    recentScroll = true;
-    window.setTimeout(function () {
-        recentScroll = false;
-    }, 2000)
-});
 
 $('.offer-puzzles__button').on('click', function () {
     $('.offer-puzzles__button').removeClass('offer-puzzles__button--active');
@@ -53,13 +37,19 @@ $('.offer-puzzles__button').on('click', function () {
 $('#show-modal, .home button').on('click', () => {
     $('.modal__wrapper').css('display', 'flex');
 });
-tippy('[data-tippy-content]');
+tippy('[data-tippy-content]:not(.cookie-info)');
+
+tippy('.cookie-info', {
+    placement: 'top',
+    followCursor: 'horizontal',
+    plugins: [followCursor]
+});
 
 const anim = function () {
     let particlesOpts = {};
     particlesOpts.complete = () => {
         $('.modal__footer').text('Wiadomość została wysłana ❤');
-        setTimeout(function(){
+        setTimeout(function () {
             $('.modal__wrapper').fadeOut();
         }, 5000);
 
@@ -75,7 +65,7 @@ const formValidation = () => {
     if (
         $('#visit-name').val() === '' || $('#visit-date').val() === ''
     ) {
-        $('.modal__error').text('Popraw formularz fredzie');
+        $('.modal__error').text('Popraw wymagane pola');
         return false
     } else {
         $('.modal__error').text('');
@@ -90,7 +80,7 @@ $('#as').on('click', function (e) {
             name: $('#visit-name').val(),
             date: $('#visit-date').val(),
             person: $('#visit-person').val(),
-            description: $('#visit-description').val()
+            phone: $('#visit-phone').val()
         };
         fetch('http://lddent.bpc-dev.pl/mail.php', {
             method: 'POST',
@@ -110,3 +100,48 @@ $('#as').on('click', function (e) {
 });
 
 
+particlesJS("particles-js", {
+    "particles": {
+        "number": {"value": 160, "density": {"enable": true, "value_area": 800}},
+        "color": {"value": "#ffffff"},
+        "shape": {
+            "type": "circle",
+            "stroke": {"width": 0, "color": "#000000"},
+            "polygon": {"nb_sides": 5},
+            "image": {"src": "img/github.svg", "width": 100, "height": 100}
+        },
+        "opacity": {"value": 1, "random": true, "anim": {"enable": true, "speed": 1, "opacity_min": 0, "sync": false}},
+        "size": {"value": 3, "random": true, "anim": {"enable": false, "speed": 4, "size_min": 0.3, "sync": false}},
+        "line_linked": {"enable": false, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1},
+        "move": {
+            "enable": true,
+            "speed": 1,
+            "direction": "none",
+            "random": true,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {"enable": false, "rotateX": 600, "rotateY": 600}
+        }
+    },
+    "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+            "onhover": {"enable": true, "mode": "bubble"},
+            "onclick": {"enable": true, "mode": "repulse"},
+            "resize": true
+        },
+        "modes": {
+            "grab": {"distance": 400, "line_linked": {"opacity": 1}},
+            "bubble": {"distance": 250, "size": 0, "duration": 2, "opacity": 0, "speed": 3},
+            "repulse": {"distance": 400, "duration": 0.4},
+            "push": {"particles_nb": 4},
+            "remove": {"particles_nb": 2}
+        }
+    },
+    "retina_detect": true
+});
+
+$('.cookie-info').on('click', function() {
+   $(this).fadeOut();
+});
