@@ -106,11 +106,12 @@ body {
 .persons {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   list-style: none;
 
   &__item {
-    margin: 0.5rem;
+    margin: -2rem 0.5rem 0.5rem 0.5rem;
     overflow: hidden;
 
     &:nth-child(1) {
@@ -119,10 +120,6 @@ body {
 
     &:nth-child(3) {
       border-radius: 0 2rem 0 0;
-    }
-
-    @include res(tab) {
-      margin: 0 1rem 2rem 1rem;
     }
   }
 }
@@ -136,6 +133,10 @@ body {
   outline: none;
   cursor: pointer;
   text-decoration: none;
+
+  &:not(.person--active) {
+    width: 300px;
+  }
 
   @include res(tab) {
     width: 332px;
@@ -167,7 +168,7 @@ body {
   }
 
   &--active {
-    box-shadow: 0 10px 20px var(--person-box-shadow-color);
+    //box-shadow: 0 10px 20px var(--person-box-shadow-color);
   }
 
   &__image {
@@ -177,10 +178,17 @@ body {
     height: 160px;
     background-color: var(--person-image-background);
     opacity: 0.5;
-    transition: opacity 0.2s ease;
+    clip-path: circle(40% at 50% 50%);
+    transition: opacity 0.2s ease, clip-path 0.1s ease;
+
+    &:hover {
+      clip-path: circle(45% at 50% 50%);
+
+    }
 
     @include res(tab) {
-      height: 400px;
+      //height: 400px;
+      height: 365px;
     }
 
     img {
@@ -201,6 +209,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
+    display: none;
 
     @include res(tab) {
       font-size: 1.5em;
@@ -270,6 +279,10 @@ body {
   }
 }
 
+#person-description {
+  width: calc(100% - 364px);
+}
+
 .person-description {
   padding: 0.5rem;
   font-size: 1.125em;
@@ -283,11 +296,11 @@ body {
   }
 
   @include res(desktop) {
-    padding: 2rem 3rem;
+    //padding: 2rem 3rem;
   }
 
   @include res(wide) {
-    padding: 64px 4rem 2rem;
+    //padding: 64px 4rem 2rem;
   }
 
   &__paragraph {
@@ -615,14 +628,17 @@ body {
   &__container {
     display: flex;
     flex-direction: column;
+    padding-bottom: 2rem;
 
     @include res(tab) {
       flex-direction: row;
+      padding-bottom: 2rem;
     }
   }
 }
 
 .contact-form {
+
   @include res(tab) {
     margin-right: 2rem;
     min-width: 400px;
@@ -645,6 +661,15 @@ body {
   &__textarea {
     padding: 0.5rem 1rem;
     font-size: 1em;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      margin-left: 0.5rem;
+    }
   }
 }
 
@@ -861,6 +886,7 @@ body {
     position: relative;
     z-index: 5;
     max-width: 80vw;
+    display: flex;
 
     &::before {
       position: absolute;
@@ -1193,6 +1219,7 @@ polygon {
   border: 0;
   cursor: pointer;
   outline: none;
+
   &:hover {
     img {
       transform: translateY(-20px);
