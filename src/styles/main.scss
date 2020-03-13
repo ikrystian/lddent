@@ -111,7 +111,6 @@ body {
   list-style: none;
 
   &__item {
-    margin: -2rem 0.5rem 0.5rem 0.5rem;
     overflow: hidden;
 
     &:nth-child(1) {
@@ -134,21 +133,8 @@ body {
   cursor: pointer;
   text-decoration: none;
 
-  &:not(.person--active) {
-    width: 300px;
-  }
-
   @include res(tab) {
     width: 332px;
-  }
-
-  &:hover,
-  &:focus {
-    .person__name {
-      span {
-        transform: translateX(0.5rem);
-      }
-    }
   }
 
   &--active,
@@ -162,9 +148,6 @@ body {
       transform: scale(1.1);
     }
 
-    .person__name {
-      @include primary-gradient(var(--primary-color), var(--secondary-color));
-    }
   }
 
   &--active {
@@ -180,15 +163,19 @@ body {
     opacity: 0.5;
     clip-path: circle(40% at 50% 50%);
     transition: opacity 0.2s ease, clip-path 0.1s ease;
+    position: relative;
 
     &:hover {
       clip-path: circle(45% at 50% 50%);
 
+      .person__name {
+        opacity: 1;
+      }
     }
 
     @include res(tab) {
       //height: 400px;
-      height: 365px;
+      height: 280px;
     }
 
     img {
@@ -200,29 +187,20 @@ body {
   }
 
   &__name {
-    background-color: var(--primary-color);
-    padding: 1rem 0.5rem;
-    color: var(--person-name-color);
-    font-weight: bold;
-    text-align: left;
-    font-size: 1.125em;
+    position: absolute;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    display: none;
-
-    @include res(tab) {
-      font-size: 1.5em;
-      padding: 1rem;
-    }
-
-    span {
-      transition: transform 0.2s;
-    }
-
-    span:first-child {
-      text-transform: uppercase;
-    }
+    padding: 1rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    left: 0;
+    right: 0;
+    top: 70%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -287,6 +265,13 @@ body {
   padding: 0.5rem;
   font-size: 1.125em;
 
+  &__name {
+    font-size: 2em;
+    margin-bottom: 1rem;
+    display: inline-block;
+    @include gradient-overlay;
+  }
+
   &:not(:first-of-type) {
     display: none;
   }
@@ -317,9 +302,7 @@ body {
     span {
       position: relative;
       padding-bottom: 0.25rem;
-      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      @include gradient-overlay();
 
       &::after {
         content: '';
