@@ -19,12 +19,12 @@
 </head>
 <body>
 
-<button class="show-modal" id="show-modal"  data-tippy-content="Umów się na wizytę !">
-    <img src="https://www.pinclipart.com/picdir/big/143-1430867_dentist-clipart-dental-kit-.png" alt="">
+<button class="show-modal" id="show-modal" data-tippy-content="Umów się na wizytę !">
+    <img src="${require('./assets/images/show-modal-button.png')}" alt="">
 </button>
 
 <div class="modal__wrapper" role="dialog">
-    <form class="modal">
+    <form class="modal" autocomplete="off">
         <div class="modal__image"></div>
         <header class="modal__header">
             <h1 class="modal__title">Umów się na wizytę</h1>
@@ -34,33 +34,34 @@
         </header>
 
         <main class="modal__content">
-                <div class="modal-form__group">
-                    <label for="visit-name">Imię i nazwisko</label>
-                    <input type="text" id="visit-name" required autofocus>
-                </div>
+            <div class="modal-form__group">
+                <label for="visit-name">Imię i nazwisko</label>
+                <input type="text" id="visit-name" required autofocus>
+            </div>
 
-                <div class="modal-form__group">
-                    <label for="visit-date">Data wizyty</label>
-                    <input type="date" id="visit-date" required>
-                </div>
+            <div class="modal-form__group">
+                <label for="visit-date">Data wizyty</label>
+                <input type="date" id="visit-date" required>
+            </div>
 
-                <div class="modal-form__group">
-                    <label for="visit-person">Osoba</label>
-                    <select name="person" id="visit-person">
-                        <option value="">lek. stom. Lidia Danielewska</option>
-                        <option value="">lek. stom. Sylwia Smyk</option>
-                        <option value="">hig. stom. Anna Polkowska</option>
-                    </select>
-                </div>
-                <div class="modal-form__group">
-                    <label for="visit-description">Dodatkowe uwagi</label>
-                    <textarea name="visit-description" id="visit-description" cols="30" rows="2"></textarea>
-                </div>
+            <div class="modal-form__group">
+                <label for="visit-person">Osoba</label>
+                <select name="person" id="visit-person">
+                    <option value="Lidia Danielewska">lek. stom. Lidia Danielewska</option>
+                    <option value="Sylwia Smyk">lek. stom. Sylwia Smyk</option>
+                    <option value="Anna Polkowska">hig. stom. Anna Polkowska</option>
+                </select>
+            </div>
+            <div class="modal-form__group">
+                <label for="visit-description">Dodatkowe uwagi</label>
+                <textarea name="visit-description" id="visit-description" cols="30" rows="2"></textarea>
+            </div>
         </main>
 
         <footer class="modal__footer">
+            <p class="modal__error"></p>
             <div class="grid__item theme-1">
-                <button type="button" class="particles-button">Zapisz się</button>
+                <button type="submit" class="particles-button" id="as">Zapisz się</button>
             </div>
         </footer>
     </form>

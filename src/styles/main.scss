@@ -627,7 +627,6 @@ body {
     }
 
 
-
     svg {
       transform: scale(0.7);
 
@@ -1018,7 +1017,7 @@ polygon {
 // change hex to vars
 .modal {
   width: 680px;
-  max-width: 98vw;
+  max-width: 90vw;
   position: relative;
   background-color: #fff;
   border-radius: 0.5rem;
@@ -1026,6 +1025,13 @@ polygon {
 
   @include res(phone) {
     padding-left: 216px;
+  }
+
+  &--checked {
+    *:invalid {
+      border-color: var(--warn-color) !important;
+      color: var(--warn-color);
+    }
   }
 
   &__wrapper {
@@ -1105,6 +1111,10 @@ polygon {
     max-height: calc(95vh - 82px)
   }
 
+  &__error {
+    color: var(--warn-color);
+  }
+
   &__footer {
     display: flex;
     justify-content: flex-end;
@@ -1113,12 +1123,18 @@ polygon {
     min-height: 51px;
 
     button {
-      background-color: #77c9c5;
+      background-color: var(--secondary-color);
       color: #fff;
-      border: 0;
+      border: 2px solid var(--secondary-color);
       margin-left: 1rem;
       padding: 0.5rem 1rem;
       cursor: pointer;
+
+      &:hover,
+      &:focus {
+        background-color: #fff;
+        color: var(--secondary-color);
+      }
     }
   }
 }
@@ -1180,6 +1196,11 @@ polygon {
   z-index: 12;
   outline: none;
   cursor: pointer;
+  animation: shake 1s cubic-bezier(.36,.07,.19,.97) 3;
+  animation-delay: 2s;
+  transform: translate3d(0, 0, 0);
+
+
   img {
     max-width: 100%;
     border-radius: 50%;
@@ -1200,11 +1221,13 @@ polygon {
 
 .particles {
   position: relative;
+  display: flex;
 
   &-button {
     user-select: none;
     position: relative;
     will-change: transform, opacity;
+    outline: none;
   }
 
   &-canvas {
@@ -1220,5 +1243,24 @@ polygon {
     display: inline-block;
     overflow: hidden;
     will-change: transform;
+  }
+}
+
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
   }
 }

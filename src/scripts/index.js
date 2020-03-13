@@ -11,7 +11,7 @@ window.onload = function () {
         offset: 64
     })
 };
-$('.close-modal').on('click', () =>  $('.modal__wrapper').fadeOut());
+$('.close-modal').on('click', () => $('.modal__wrapper').fadeOut());
 
 const person = $('.person');
 person.on('click', function () {
@@ -26,7 +26,7 @@ person.on('click', function () {
 });
 let recentScroll = false;
 
-$(window).scroll(function() {
+$(window).scroll(function () {
     let header = $('.header');
     let scroll = header.offset().top;
 
@@ -36,10 +36,12 @@ $(window).scroll(function() {
         header.removeClass('header--no-margin');
     }
     recentScroll = true;
-    window.setTimeout(function() { recentScroll = false; }, 2000)
+    window.setTimeout(function () {
+        recentScroll = false;
+    }, 2000)
 });
 
-$('.offer-puzzles__button').on('click', function() {
+$('.offer-puzzles__button').on('click', function () {
     $('.offer-puzzles__button').removeClass('offer-puzzles__button--active');
     $(this).addClass('offer-puzzles__button--active');
 
@@ -53,25 +55,58 @@ $('#show-modal, .home button').on('click', () => {
 });
 tippy('[data-tippy-content]');
 
-
-const arrOpts = [{}];
-
-const items = document.querySelectorAll('.modal__footer');
-items.forEach((el, pos) => {
-    const bttn = el.querySelector('button.particles-button');
-
-    let particlesOpts = arrOpts[pos];
+const anim = function () {
+    let particlesOpts = {};
     particlesOpts.complete = () => {
-       $('.modal__footer').text('Wiadomość została wysłana ❤')
+        $('.modal__footer').text('Wiadomość została wysłana ❤');
+        setTimeout(function(){
+            $('.modal__wrapper').fadeOut();
+        }, 5000);
+
     };
-    const particles = new Particles(bttn, particlesOpts);
+    const particles = new Particles(document.getElementById('as'), particlesOpts);
+    if (!particles.isAnimating()) {
+        particles.disintegrate();
+    }
+};
 
-    let buttonVisible = true;
-    bttn.addEventListener('click', () => {
-        if ( !particles.isAnimating() && buttonVisible ) {
-            particles.disintegrate();
-            buttonVisible = !buttonVisible;
-        }
-    });
+const formValidation = () => {
+    $('.modal').addClass('modal--checked');
+    if (
+        $('#visit-name').val() === '' || $('#visit-date').val() === ''
+    ) {
+        $('.modal__error').text('Popraw formularz fredzie');
+        return false
+    } else {
+        $('.modal__error').text('');
+        return true;
+    }
+};
 
+$('#as').on('click', function (e) {
+    e.preventDefault();
+    if (formValidation()) {
+        let data = {
+            name: $('#visit-name').val(),
+            date: $('#visit-date').val(),
+            person: $('#visit-person').val(),
+            description: $('#visit-description').val()
+        };
+        fetch('http://lddent.bpc-dev.pl/mail.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                (data === 200) ? anim() : $('.modal__error').text('Coś poszło nie tak')
+            })
+            .catch((error) => {
+                $('.modal__error').text(error)
+            });
+    }
 });
+
+
