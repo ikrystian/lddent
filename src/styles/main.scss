@@ -112,14 +112,7 @@ body {
 
   &__item {
     overflow: hidden;
-
-    &:nth-child(1) {
-      border-radius: 2rem 0 0 0;
-    }
-
-    &:nth-child(3) {
-      border-radius: 0 2rem 0 0;
-    }
+    order: 2;
   }
 }
 
@@ -132,6 +125,7 @@ body {
   outline: none;
   cursor: pointer;
   text-decoration: none;
+
 
   @include res(tab) {
     width: 332px;
@@ -220,8 +214,8 @@ body {
     padding: 1rem;
     text-transform: uppercase;
     font-weight: bold;
-    width: 160px;
-    height: 160px;
+    width: 310px;
+    height: 100px;
     color: #fff;
     display: grid;
     place-items: center;
@@ -1219,7 +1213,7 @@ polygon {
   img {
     transition: transform 0.2s ease;
     position: absolute;
-    left: calc(0.5rem + var(--nav-width));
+    left: 0.5rem;
     transform: translateY(0);
   }
 }

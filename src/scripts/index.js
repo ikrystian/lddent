@@ -23,6 +23,8 @@ person.on('click', function () {
     $(this).addClass('person--active');
     description.hide();
     $(descriptionContainer).slideDown();
+    $('.person').parent().css('order', '2');
+    $(this).parent().css('order', '1');
 });
 
 $('.offer-puzzles__button').on('click', function () {
@@ -39,7 +41,7 @@ $('#show-modal, .home button').on('click', () => {
 });
 tippy('[data-tippy-content]:not(.cookie-info)');
 
-tippy('.cookie-info', {
+tippy('main .cookie-info', {
     placement: 'top',
     followCursor: 'horizontal',
     plugins: [followCursor]
