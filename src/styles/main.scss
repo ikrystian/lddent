@@ -22,8 +22,25 @@ $container-width: 1360px;
   --warn-color: red;
   --footer-background-color: #3a444d;
   --footer-color: #fff;
-
+  --modal-background-color: #fff;
   --nav-width: 60px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--secondary-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0, 0, 0, 0.4);
 }
 
 * {
@@ -42,6 +59,8 @@ body {
   min-height: 100vh;
   color: var(--font-color);
   padding-left: var(--nav-width);
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .aside {
@@ -56,6 +75,13 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
   z-index: 5;
   background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+
+  &__logo {
+    position: absolute;
+    left: 50%;
+    top: 1rem;
+    transform: translateX(-50%);
+  }
 }
 
 .hide-for-user {
@@ -78,16 +104,7 @@ body {
   margin: auto;
 }
 
-.logo {
-
-
-  &__image {
-    height: 35px;
-  }
-}
-
 .section {
-
   &__title {
     font-size: 3em;
     text-align: center;
@@ -98,7 +115,7 @@ body {
     }
 
     @include res(desktop) {
-      padding: 64px 1rem 2rem;
+      padding: 64px 1rem 3rem;
     }
   }
 }
@@ -106,9 +123,12 @@ body {
 .persons {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: center;
   list-style: none;
+  justify-content: center;
+
+  @include res(tab) {
+    flex-direction: column;
+  }
 
   &__item {
     overflow: hidden;
@@ -128,7 +148,7 @@ body {
 
 
   @include res(tab) {
-    width: 332px;
+    width: 260px;
   }
 
   &--active,
@@ -169,7 +189,7 @@ body {
 
     @include res(tab) {
       //height: 400px;
-      height: 280px;
+      height: 215px;
     }
 
     img {
@@ -192,7 +212,7 @@ body {
     right: 0;
     top: 70%;
     transform: translateY(-50%);
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: #fff;
     background-color: rgba(0, 0, 0, 0.5);
   }
@@ -251,13 +271,18 @@ body {
   }
 }
 
-#person-description {
-  width: calc(100% - 364px);
-}
 
 .person-description {
   padding: 0.5rem;
   font-size: 1.125em;
+
+  &__wrapper {
+    width: 100%;
+
+    @include res(tab) {
+      width: calc(100% - 364px);
+    }
+  }
 
   &__name {
     font-size: 2em;
@@ -638,6 +663,13 @@ body {
   &__textarea {
     padding: 0.5rem 1rem;
     font-size: 1em;
+    border: 0;
+    border-right: 2px solid var(--primary-color);
+    outline: none;
+
+    &:focus {
+      border-right-color: var(--secondary-color);
+    }
   }
 
   &__footer {
@@ -646,6 +678,22 @@ body {
 
     button {
       margin-left: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--primary-color);
+      border: 1px solid var(--primary-color);
+      color: #fff;
+      cursor: pointer;
+      opacity: 0.75;
+      transition: opacity 0.2s;
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
+
+      &[type=reset] {
+        background-color: var(--secondary-color);
+        border: 1px solid var(--secondary-color);
+      }
     }
   }
 }
@@ -700,7 +748,6 @@ body {
       @include res(desktop) {
         position: absolute;
         width: calc(33.333% + 1.5rem);
-        left: 1.5rem;
         top: 50%;
         justify-content: flex-end;
         text-align: right;
@@ -767,6 +814,10 @@ body {
   }
 }
 
+.nav-container {
+  position: relative;
+}
+
 .nav {
   display: flex;
   flex-direction: column;
@@ -781,12 +832,11 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     color: #fff;
     text-decoration: none;
-    border-left: 2px solid transparent;
+    border-left: 3px solid transparent;
     transition: border-left-color 0.2s ease;
 
-    &:active {
-      img {
-      }
+    &.active {
+      border-left-color: #fff;
     }
 
     &:hover {
@@ -798,20 +848,19 @@ body {
   &__icon {
     max-width: 30px;
     margin-bottom: 0.25rem;
-    transform: translateX(-2px);
+    transform: translateX(-3px);
   }
 }
 
 .home {
   min-height: 75vh;
-  background: url('../assets/images/home.jpg') fixed center no-repeat;
-  background-size: cover;
   position: relative;
   padding: 1rem 1rem 0 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 
   &__particles {
     position: absolute;
@@ -820,6 +869,7 @@ body {
     left: 0;
     bottom: 0;
     opacity: 0.8;
+    z-index: 1;
   }
 
   &__title {
@@ -854,9 +904,15 @@ body {
   }
 }
 
+.slick-slider {
+  position: absolute;
+  overflow: hidden;
+  height: 75vh;
+}
+
 .about {
   &__container {
-    padding-top: 5rem;
+    padding-top: 3rem;
     margin-top: -8rem;
     background-color: #fff;
     border-radius: 2rem 2rem 0 0;
@@ -864,6 +920,11 @@ body {
     z-index: 5;
     max-width: 80vw;
     display: flex;
+    flex-direction: column;
+
+    @include res(tab) {
+      flex-direction: row;
+    }
 
     &::before {
       position: absolute;
@@ -893,12 +954,6 @@ body {
       height: 2.5rem;
       opacity: 0.1;
     }
-  }
-}
-
-@supports (-webkit-touch-callout: none) {
-  .home {
-    background-attachment: scroll;
   }
 }
 
@@ -937,12 +992,11 @@ polygon {
 
 }
 
-// change hex to vars
 .modal {
   width: 680px;
   max-width: 90vw;
   position: relative;
-  background-color: #fff;
+  background-color: var(--modal-background-color);
   border-radius: 0.5rem;
   min-height: 400px;
 

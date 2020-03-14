@@ -5,6 +5,9 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- Add the slick-theme.css if you want default styling -->
     <!-- webpack inject styles / don't modify this line -->
 
     <link
@@ -15,13 +18,27 @@
         .particles-button {
             background: #77c9c5;
         }
+        .loader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #fff;
+            display: grid;
+            place-items: center;
+            color: #3A444D;
+            font-size: 0.875em;
+        }
     </style>
 </head>
 <body>
-
+<div class="loader" id="loader">Trwa wczytywanie, proszę czekacć</div>
 <aside class="aside">
+    <a href="/" class="aside__logo">
+        <img src="${require('./assets/images/lddent-sidebar-logo.png')}" alt="" data-tippy-content="LDDENT" data-tippy-placement="right">
+    </a>
     <nav class="nav-container">
-
         <ul class="nav" id="main-menu">
             <li class="nav__item">
                 <a href="#home" class="nav__link" data-tippy-content="Strona główna" data-tippy-placement="right">
@@ -103,10 +120,21 @@
     </div>
 
     <div class="content">
-
+        <div class="slick">
+            <div>
+                <img src="${require('./assets/images/home.jpg')}" alt="">
+            </div>
+            <div>
+                <img src="${require('./assets/images/home-2.jpg')}" alt="">
+            </div>
+            <div>
+                <img src="${require('./assets/images/home-3.jpg')}" alt="">
+            </div>
+        </div>
 
         <section class="section home" id="home">
             <div id="particles-js" class="home__particles"></div>
+
             <img src="https://lddent.pl/img/lddent.png" alt="">
             <h1 class="home__title">Stomatologia</h1>
             <button class="home__button" style="z-index: 5;">Umów się na wizytę</button>
@@ -159,7 +187,7 @@
                         </a>
                     </li>
                 </ul>
-                <div id="person-description">
+                <div id="person-description" class="person-description__wrapper">
                     <div class="person-description container" id="first-person-details">
                         <h2 class="person-description__name">
                             <span>Lek. stom.</span>
@@ -545,7 +573,7 @@
                     </div>
                     <div class="contact-form__group">
                         <label class="contact-form__label" for="content">Treść wiadomości</label>
-                        <textarea name="" class="contact-form__text-area" id="content" cols="30" rows="10"></textarea>
+                        <textarea name="" class="contact-form__textarea" id="content" cols="30" rows="10"></textarea>
                     </div>
                     <div class="contact-form__footer">
                         <button type="reset">Wyczyść</button>
@@ -593,7 +621,6 @@
             rights
             reserved. | by <a href="http://bpcoders.pl" class="footer__link" target="_blank">BPCoders</a></p>
     </footer>
-
 </main>
 <script src="scripts/anime.min.js"></script>
 <script src="scripts/particles.js"></script>

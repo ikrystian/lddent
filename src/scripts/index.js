@@ -3,16 +3,25 @@ import scrollSpy from 'simple-scrollspy';
 import tippy, {followCursor} from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 import Cookies from 'js-cookie'
+import 'slick-carousel';
 
 window.onload = function () {
     scrollSpy('#main-menu', {
-        sectionClass: '.section',
-        menuActiveTarget: '.nav__link',
+        sectionClass: '.section',        menuActiveTarget: '.nav__link',
         offset: 64
-    })
+    });
+    $('.slick').slick({
+        arrows: false,
+        autoplay: true,
+        fade: true
+    });
 };
 $('.close-modal').on('click', () => $('.modal__wrapper').fadeOut());
 
+$('document').on('ready', () => {
+    $('#loader').fadeOut();
+
+});
 const person = $('.person');
 person.on('click', function () {
     let id = $(this).attr('data-person');
@@ -151,7 +160,7 @@ $('main').on('click', '.cookie-info', function () {
     $(this).remove();
 });
 
-const cookieContent = '    <button type="button" data-tippy-content="Kliknij aby zaakceptować" class="cookie-info">\n' +
+const cookieContent = '    <button title="Kliknij aby zaakceptować" type="button" data-tippy-content="Kliknij aby zaakceptować" class="cookie-info">\n' +
     '        <span><img src="http://sztukanauki.eu/wp-content/themes/wordpressify/img/cookie-monster.png" alt="">Bardzo ważna informacja o ciasteczkach ¯\\_(ツ)_/¯</span>\n' +
     '    </button>';
 
