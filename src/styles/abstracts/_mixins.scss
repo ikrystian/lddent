@@ -21,11 +21,6 @@
   }
 }
 
-// remove in refactor
-@mixin primary-gradient($col1, $col2)  {
-  background: linear-gradient(to right, $col1, $col2);
-}
-
 @mixin gradient-overlay() {
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
   -webkit-background-clip: text;

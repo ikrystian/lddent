@@ -18,6 +18,7 @@
         .particles-button {
             background: #77c9c5;
         }
+
         .loader {
             position: fixed;
             left: 0;
@@ -28,6 +29,7 @@
             display: grid;
             place-items: center;
             color: #3A444D;
+            z-index: 10000000;
             font-size: 0.875em;
         }
     </style>
@@ -36,7 +38,8 @@
 <div class="loader" id="loader">Trwa wczytywanie, proszę czekacć</div>
 <aside class="aside">
     <a href="/" class="aside__logo">
-        <img src="${require('./assets/images/lddent-sidebar-logo.png')}" alt="" data-tippy-content="LDDENT" data-tippy-placement="right">
+        <img src="${require('./assets/images/lddent-sidebar-logo.png')}" alt="" data-tippy-content="LDDENT"
+             data-tippy-placement="right">
     </a>
     <nav class="nav-container">
         <ul class="nav" id="main-menu">
@@ -580,8 +583,9 @@
                         <button type="submit">Wyślij</button>
                     </div>
                 </form>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d79969.52869485738!2d22.493730871256634!3d51.218195621388666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x472257141e154061%3A0x5528ee7af6e8e95f!2sLublin!5e0!3m2!1spl!2spl!4v1583228701296!5m2!1spl!2spl"
-                        width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2481.2959114193363!2d23.55291692710129!3d51.5444727222072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4723dcf069cf64b1%3A0x51ea6cee9e1911f9!2sCzworobok%2C%2022-200%20W%C5%82odawa!5e0!3m2!1spl!2spl!4v1584196135876!5m2!1spl!2spl"
+                        width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen=""
+                        aria-hidden="false" tabindex="0"></iframe>
 
             </div>
         </section>
@@ -621,10 +625,13 @@
             rights
             reserved. | by <a href="http://bpcoders.pl" class="footer__link" target="_blank">BPCoders</a></p>
     </footer>
+<button type="button" data-tippy-content="Kliknij aby zaakceptować" class="cookie-info">
+<span><img src="${require('./assets/images/cookie-monster.png')}" alt="">Bardzo ważna informacja o ciasteczkach ¯\\_(ツ)_/¯</span>
+</button>;
 </main>
 <script src="scripts/anime.min.js"></script>
 <script src="scripts/particles.js"></script>
-<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <!-- webpack inject script file / don't modify this line -->
 <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>
