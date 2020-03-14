@@ -1272,6 +1272,36 @@ polygon {
   }
 }
 
+.privacy {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
+  width: 680px;
+  max-width: 90vw;
+  position: fixed;
+  right: 0;
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: #fff;
+  padding: 1rem;
+  top: 0;
+  z-index: 130;
+  font-size: 1.2em;
+  line-height: 1.4em;
+  transform: translateX(100%);
+  transition: transform 0.2s ease;
+  direction:rtl;
+  text-align: left;
+
+  &--opened {
+    transform: translateX(0);
+  }
+
+  &__title {
+    font-size: 1.5em;
+    margin-bottom: 1rem;
+    @include gradient-overlay;
+  }
+}
+
 @keyframes shake {
   10%, 90% {
     transform: translate3d(-1px, 0, 0);

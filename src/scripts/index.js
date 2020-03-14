@@ -169,4 +169,8 @@ window.onload = function () {
         cookieInfoBar.remove();
     }
 
+    $('#privacy-button').on('click', () => {
+        $('.privacy').toggleClass('privacy--opened');
+    })
+
 };
