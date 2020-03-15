@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <meta name="Description" content="Lddent - best of bests">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <!-- Add the slick-theme.css if you want default styling -->
     <!-- webpack inject styles / don't modify this line -->
@@ -14,6 +14,7 @@
             rel="stylesheet"
             href="<%=htmlWebpackPlugin.files.chunks.main.css %>"
     />
+    <link rel="icon" type="image/png" href="https://lddent.pl/img/icon.png"/>
     <style>
         .particles-button {
             background: #77c9c5;
@@ -25,47 +26,71 @@
             top: 0;
             right: 0;
             bottom: 0;
-            background-color: #fff;
+            background-color: #71c5c7;
             display: grid;
             place-items: center;
             color: #3A444D;
             z-index: 10000000;
             font-size: 0.875em;
         }
+
+        .loader span {
+            display: block;
+            color: #fff;
+            margin-top: 1rem;
+        }
+
     </style>
 </head>
 <body>
-<div class="loader" id="loader">Trwa wczytywanie, proszę czekacć</div>
+<div class="loader" id="loader">
+    <div>
+        <img src="https://media.tenor.com/images/4e771dab5f6c9c35a771c2b8ea1e0e09/tenor.gif" alt="">
+        <span>Trwa wczytywanie, proszę czekacć</span>
+    </div>
+</div>
 <aside class="aside">
-    <a href="/" class="aside__logo">
-        <img src="${require('./assets/images/lddent-sidebar-logo.png')}" alt="" data-tippy-content="LDDENT"
+    <a href="/" class="aside__logo" title="Go to home page" aria-label="Go to home page">
+        <img class="lazyload" data-src="${require('./assets/images/lddent-sidebar-logo.png')}" alt=""
+             data-tippy-content="LDDENT"
              data-tippy-placement="right">
     </a>
     <nav class="nav-container">
         <ul class="nav" id="main-menu">
             <li class="nav__item">
-                <a href="#home" class="nav__link" data-tippy-content="Strona główna" data-tippy-placement="right">
-                    <img class="nav__icon" src="${require('./assets/images/home.svg')}" alt="">
+                <a href="#home" aria-label="Strona główna" class="nav__link" data-tippy-content="Strona główna"
+                   data-tippy-placement="right">
+                    <img class="nav__icon lazyload" data-src="${require('./assets/images/home.svg')}" alt="">
                 </a>
             </li>
             <li class="nav__item">
-                <a href="#about" class="nav__link" data-tippy-content="O nas" data-tippy-placement="right">
-                    <img class="nav__icon" src="${require('./assets/images/about.svg')}" alt="">
+                <a href="#about" aria-label="O nas" class="nav__link" data-tippy-content="O nas"
+                   data-tippy-placement="right">
+                    <img class="nav__icon lazyload" data-src="${require('./assets/images/about.svg')}" alt="">
                 </a>
             </li>
             <li class="nav__item">
-                <a href="#offer" class="nav__link" data-tippy-content="Oferta" data-tippy-placement="right">
-                    <img class="nav__icon" src="${require('./assets/images/offer.svg')}" alt="">
+                <a href="#offer" aria-label="Oferta" class="nav__link" data-tippy-content="Oferta"
+                   data-tippy-placement="right">
+                    <img class="nav__icon lazyload" data-src="${require('./assets/images/offer.svg')}" alt="">
                 </a>
             </li>
             <li class="nav__item">
-                <a href="#contact" class="nav__link" data-tippy-content="Kontakt" data-tippy-placement="right">
-                    <img class="nav__icon" src="${require('./assets/images/contact.svg')}" alt="">
+                <a href="#faq" aria-label="Często zadawane pytania" class="nav__link"
+                   data-tippy-content="Często zadawane pytania" data-tippy-placement="right">
+                    <img class="nav__icon lazyload" data-src="${require('./assets/images/faq.svg')}" alt="">
                 </a>
             </li>
             <li class="nav__item">
-                <a href="#" id="privacy-button" class="nav__link" data-tippy-content="Polityka prywatności" data-tippy-placement="right">
-                    <img class="nav__icon" src="${require('./assets/images/list.svg')}" alt="">
+                <a href="#contact" aria-label="Kontakt" class="nav__link" data-tippy-content="Kontakt"
+                   data-tippy-placement="right">
+                    <img class="nav__icon lazyload" data-src="${require('./assets/images/contact.svg')}" alt="">
+                </a>
+            </li>
+            <li class="nav__item">
+                <a href="#" aria-label="Polityka prywatności" id="privacy-button" class="nav__link"
+                   data-tippy-content="Polityka prywatności" data-tippy-placement="right">
+                    <img class="nav__icon lazyload" data-src="${require('./assets/images/list.svg')}" alt="">
                 </a>
             </li>
         </ul>
@@ -75,8 +100,9 @@
 </aside>
 <main class="main">
 
-    <button class="show-modal" id="show-modal" data-tippy-content="Umów się na wizytę !">
-        <img src="${require('./assets/images/show-modal-button.png')}" alt="">
+    <button class="show-modal" title="Umów się na wizytęwizytę" id="show-modal"
+            data-tippy-content="Umów się na wizytę !">
+        <img data-src="${require('./assets/images/show-modal-button.png')}" class="lazyload" alt="">
     </button>
 
     <div class="modal__wrapper" role="dialog">
@@ -130,23 +156,20 @@
     <div class="content">
         <div class="slick">
             <div>
-                <img src="${require('./assets/images/home.jpg')}" alt="">
+                <img data-src="${require('./assets/images/home.webp')}" class="lazyload" alt="">
             </div>
             <div>
-                <img src="${require('./assets/images/home-2.jpg')}" alt="">
-            </div>
-            <div>
-                <img src="${require('./assets/images/home-3.jpg')}" alt="">
+                <img data-src="${require('./assets/images/home-2.webp')}" class="lazyload" alt="">
             </div>
         </div>
 
         <section class="section home" id="home" style="margin-top: -75vh;">
             <div id="particles-js" class="home__particles"></div>
 
-            <img src="https://lddent.pl/img/lddent.png" alt="">
+            <img data-src="https://lddent.pl/img/lddent.png" class="lazyload" alt="">
             <h1 class="home__title">Stomatologia</h1>
             <button class="home__button" style="z-index: 5;">Umów się na wizytę</button>
-            <a href="#about" class="home__link">
+            <a href="#about" class="home__link" aria-label="Got to about section">
                 <svg class="home__icon more-arrows">
                     <polygon class="arrow-top" points="37.6,27.9 1.8,1.3 3.3,0 37.6,25.3 71.9,0 73.7,1.3 "/>
                     <polygon class="arrow-middle" points="37.6,45.8 0.8,18.7 4.4,16.4 37.6,41.2 71.2,16.4 74.5,18.7 "/>
@@ -162,7 +185,8 @@
                     <li class="persons__item">
                         <a href="#person-description" class="person person--active" data-person="first">
                     <span class="person__image">
-                        <img src="${require('./assets/images/person-1.png')}" alt="Lek. stom. Lidia Danielewska">
+                        <img data-src="${require('./assets/images/person-1.webp')}" class="lazyload"
+                             alt="Lek. stom. Lidia Danielewska">
                         <span class="person__name">
                             <span>Lek. stom.</span>
                             <span>Lidia Danielewska</span>
@@ -173,7 +197,8 @@
                     <li class="persons__item">
                         <a href="#person-description" class="person" data-person="second">
                     <span class="person__image">
-                        <img src="${require('./assets/images/person-2.png')}" alt="Lek. stom. Sylwia Smyk">
+                        <img data-src="${require('./assets/images/person-2.webp')}" class="lazyload"
+                             alt="Lek. stom. Sylwia Smyk">
                                                     <span class="person__name">
                         <span>Lek. stom.</span>
                         <span>Sylwia Smyk</span>
@@ -185,8 +210,9 @@
                     <li class="persons__item">
                         <a href="#person-description" class="person" data-person="third">
                     <span class="person__image">
-                        <img src="${require('./assets/images/person-3.png')}" alt="Hig. STOM. Anna Polkowska">
-                                                  <span class="person__name">
+                        <img data-src="${require('./assets/images/person-3.webp')}" class="lazyload"
+                             alt="Hig. STOM. Anna Polkowska">
+                                                  <span class="person__name ">
                         <span>Hig. STOM.</span>
                         <span>Anna Polkowska</span>
                     </span>
@@ -275,7 +301,8 @@
                 <ul class="offer-puzzles">
                     <li class="offer-puzzles__item">
                         <button class="offer-puzzles__button offer-puzzles__button--active" data-offer="offer-1"
-                                data-tippy-content="Stomatologia zapobiegawcza">
+                                title="Stomatologia zachowawcza"
+                                data-tippy-content="Zachowawcza">
                             <svg xmlns="http://www.w3.org/2000/svg" width="79.35" height="95.34"
                                  viewBox="0 0 79.35 95.34">
                                 <g transform="translate(-324.361 -942.579)">
@@ -293,6 +320,7 @@
                     </li>
                     <li class="offer-puzzles__item">
                         <button class="offer-puzzles__button offer-puzzles__button--third" data-offer="offer-2"
+                                title="Zabiegi profilaktyczne"
                                 data-tippy-content="Zabiegi profilaktyczne">
                             <svg xmlns="http://www.w3.org/2000/svg" width="79.35" height="95.342"
                                  viewBox="0 0 79.35 95.342">
@@ -314,6 +342,7 @@
                     </li>
                     <li class="offer-puzzles__item">
                         <button class="offer-puzzles__button offer-puzzles__button--secondary" data-offer="offer-3"
+                                title="Protetyka"
                                 data-tippy-content="Protetyka">
                             <svg xmlns="http://www.w3.org/2000/svg" width="75" height="90.41" viewBox="0 0 75 90.41">
                                 <g transform="translate(-193.285 -801.619)" opacity="0.8">
@@ -330,6 +359,7 @@
                     </li>
                     <li class="offer-puzzles__item">
                         <button class="offer-puzzles__button offer-puzzles__button--third" data-offer="offer-4"
+                                title="Leczenie kanałowe"
                                 data-tippy-content="Leczenie kanałowe">
                             <svg xmlns="http://www.w3.org/2000/svg" width="79.349" height="95.34"
                                  viewBox="0 0 79.349 95.34">
@@ -354,6 +384,7 @@
                     </li>
                     <li class="offer-puzzles__item">
                         <button class="offer-puzzles__button offer-puzzles__button--secondary" data-offer="offer-5"
+                                title="Usuwanie zębów"
                                 data-tippy-content="Usuwanie zębów">
                             <svg xmlns="http://www.w3.org/2000/svg" width="75" height="90.393" viewBox="0 0 75 90.393">
                                 <g transform="translate(-766 -2745)" opacity="0.8">
@@ -370,6 +401,7 @@
                     </li>
                     <li class="offer-puzzles__item">
                         <button class="offer-puzzles__button" data-offer="offer-6"
+                                title="Radiografia cyfrowa"
                                 data-tippy-content="Radiografia cyfrowa">
                             <svg xmlns="http://www.w3.org/2000/svg" width="79.35" height="95.341"
                                  viewBox="0 0 79.35 95.341">
@@ -389,6 +421,7 @@
                     </li>
                     <li class="offer-puzzles__item">
                         <button class="offer-puzzles__button offer-puzzles__button--fourth" data-offer="offer-7"
+                                title="Wybielanie zębów"
                                 data-tippy-content="Wybielanie zębów">
                             <svg xmlns="http://www.w3.org/2000/svg" width="75" height="82.843" viewBox="0 0 75 82.843">
                                 <g transform="translate(-74.456 -542.947)" opacity="0.8">
@@ -401,7 +434,7 @@
                 </ul>
 
                 <div class="offer__description" id="offer-1">
-                    <h3 class="person-description__title"><span>Stomatologia zapobiegawcza</span></h3>
+                    <h3 class="person-description__title"><span>Stomatologia zachowawcza</span></h3>
 
                     <ul class="description-list description-list--no-wrap">
                         <li class="description-list__item">Wypełnianie ubytków</li>
@@ -486,7 +519,7 @@
                     <li class="payments-list__item">
                     <span class="payments-list__icon">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="161.5"
-                             height="95.508" viewBox="0 0 161.5 95.508"><defs><linearGradient id="a" x1="0.5" x2="0.5"
+                             height="95.508" viewBox="0 0 161.5 95.508"><defs><linearGradient x1="0.5" x2="0.5"
                                                                                               y2="1"
                                                                                               gradientUnits="objectBoundingBox"><stop
                                 offset="0" stop-color="#8fbdec"/><stop offset="1"
@@ -550,7 +583,8 @@
                         <a href="https://www.mediraty.pl/formularz/index.php" target="_blank" rel="noopener noreferrer"
                            class="payments-list__link">
                         <span class="payments-list__icon">
-                            <img src="${require('./assets/images/installments.png')}" class="payments-list__image"
+                            <img data-src="${require('./assets/images/installments.png')}"
+                                 class="payments-list__image lazyload"
                                  alt="installments">
                         </span>
                             <span class="payments-list__name">
@@ -562,6 +596,31 @@
                         </a>
                     </li>
                 </ul>
+            </div>
+        </section>
+
+        <section class="section faq__section" id="faq">
+            <h2 class="section__title">Często zadawane pytania</h2>
+            <div class="container">
+
+                <dl class="faq">
+                    <div class="faq__column">
+                        <div class="faq__item">
+                            <dt>lorem ipsum?</dt>
+                            <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quaerat.</dd>
+                        </div>
+                    </div>
+
+                    <div class="faq__column">
+                        <div class="faq__item">
+                            <dt>lorem ipsum?</dt>
+                            <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quaerat.</dd>
+                        </div>
+
+                    </div>
+
+                </dl>
+
             </div>
         </section>
 
@@ -590,6 +649,7 @@
                 </form>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2481.2959114193363!2d23.55291692710129!3d51.5444727222072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4723dcf069cf64b1%3A0x51ea6cee9e1911f9!2sCzworobok%2C%2022-200%20W%C5%82odawa!5e0!3m2!1spl!2spl!4v1584196135876!5m2!1spl!2spl"
                         width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen=""
+                        title="google maps"
                         aria-hidden="false" tabindex="0"></iframe>
 
             </div>
@@ -624,22 +684,75 @@
 
     <footer class="footer">
         <a href="" class="footer__logo">
-            <img src="${require('./assets/images/logo.png')}" class="footer__image" alt="logo">
+            <img data-src="${require('./assets/images/logo.png')}" class="footer__image lazyload" alt="logo">
         </a>
         <p class="footer__text">© Copyright 2020 - <a href="https://lddent.pl" class="footer__link">lddent</a>. All
             rights
-            reserved. | by <a href="http://bpcoders.pl" class="footer__link" target="_blank">BPCoders</a></p>
+            reserved. | by <a href="http://bpcoders.pl" class="footer__link" target="_blank"
+                              rel="noreferrer">BPCoders</a></p>
     </footer>
 
     <div class="privacy">
         <div class="privacy-content">
+            <button class="privacy__button">
+                <i class="material-icons">close</i>
+            </button>
             <h2 class="privacy__title">Polityka prywatności</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur deserunt incidunt perferendis quidem similique? Animi asperiores error explicabo facere harum impedit maxime minus mollitia nesciunt quibusdam! Cupiditate dignissimos doloribus ducimus eum ex in iste pariatur praesentium quaerat, quo, ratione rerum sapiente sunt, tempore tenetur unde voluptates voluptatum! Ad alias aperiam blanditiis, corporis cumque delectus dolorem eius enim eos error eum ex excepturi facere, fuga, fugit impedit ipsa itaque iure laboriosam magnam minus natus non nulla odio omnis perferendis placeat quaerat quam quas quasi qui quibusdam recusandae reiciendis suscipit ullam voluptate voluptates. Cupiditate distinctio perferendis porro voluptate. Aut cupiditate eum facere odio placeat quo, ratione? Accusamus accusantium adipisci amet animi architecto asperiores atque aut beatae blanditiis commodi consectetur consequuntur dolore doloremque enim eum eveniet fuga fugit id impedit incidunt ipsum, modi natus neque nesciunt obcaecati officia officiis porro possimus praesentium quasi quod recusandae rem suscipit tempora tenetur veritatis vitae. Aliquam aliquid assumenda beatae cumque debitis eum ex expedita harum ipsum minus modi obcaecati, officiis perspiciatis placeat sit totam voluptate. Ducimus nostrum possimus sed soluta tenetur? Ad dolorum impedit laborum necessitatibus, quas quia quis sunt veritatis vero voluptatum. Cumque, doloribus expedita iste molestiae molestias numquam optio quos sit veritatis! Accusamus beatae ducimus, esse excepturi fugit impedit libero maxime odio omnis, perspiciatis qui repudiandae sunt temporibus, voluptas voluptatem. Accusamus, assumenda commodi dicta, doloribus eaque eum hic in laboriosam magnam minima minus, nihil officia placeat repellendus saepe sed totam ullam. Atque, autem, dicta distinctio ea explicabo fugiat illo ipsum iusto laboriosam laudantium magni molestias nostrum odit officia pariatur praesentium quibusdam repellendus rerum similique totam? Amet, at aut blanditiis consequatur earum explicabo harum nostrum, quasi repudiandae sapiente soluta velit voluptatem. A accusamus ad animi asperiores atque beatae corporis dignissimos excepturi explicabo ipsam nemo neque nobis numquam odio, omnis pariatur quam quibusdam quos reprehenderit, sit tenetur veniam voluptas voluptatibus? Animi architecto distinctio et eveniet iure natus quod repellendus sint! Deserunt dolor eos, ipsam odit officia quasi quod. Alias consequuntur delectus eius error illo incidunt natus nesciunt odio officia praesentium quaerat quam quia, quis. Asperiores aspernatur assumenda cumque dignissimos dolor dolores ea earum esse eveniet fugit laborum laudantium nam, neque odit quam quas ratione reprehenderit sunt, tempore voluptatem! Alias aperiam beatae commodi, deserunt dolore doloribus eligendi fugiat hic in inventore ipsa maxime molestias nobis numquam officia officiis porro quam quod quos rerum sapiente sequi tempora ullam unde ut vero voluptatem. Earum excepturi quae ratione? Ab animi asperiores consequatur delectus, deserunt ducimus ea eum facere illum magni maiores nemo non optio suscipit temporibus ullam voluptatibus! Autem deserunt fuga fugiat laborum numquam temporibus, voluptas. Accusamus adipisci aspernatur cumque dolor dolores, error expedita, facilis minima molestias mollitia odio porro praesentium quidem tempora tempore unde voluptas. Aperiam culpa earum esse itaque minus mollitia nam necessitatibus odit optio quae, rem sit vel voluptate? Atque autem corporis cum deserunt dicta dolore ducimus excepturi fuga fugiat in ipsam itaque labore laboriosam magnam minus modi nobis, officia omnis pariatur provident quidem quo, sint tempore tenetur ut veniam voluptate voluptatum? Adipisci asperiores cupiditate deserunt ea magnam numquam sint voluptatem. Aut beatae cupiditate doloremque ea minus, voluptas? Dolore enim iusto nam nobis officiis porro quia sed veniam. Architecto asperiores, autem, delectus ea eligendi itaque libero magni nemo placeat quos sunt temporibus tenetur totam. Accusamus accusantium aperiam at autem, corporis cum deserunt dolores earum eius eum exercitationem explicabo hic ipsum laudantium magnam quae quod sapiente sed sequi ullam veniam voluptatibus voluptatum. Est facere iste nisi ratione repellat. Aspernatur autem eaque eos non! Aliquid consequatur debitis est itaque nam provident quam, quos? At consectetur delectus dignissimos dolor ea eos error esse ipsam labore nesciunt, possimus quas quasi quisquam rerum sed totam, unde. Aliquid commodi debitis distinctio doloremque nam placeat soluta totam ut? Autem consectetur corporis dignissimos ea error illum ipsum laboriosam praesentium, quam quasi reprehenderit sequi tenetur ullam unde vero voluptas voluptatem! Facilis ipsum odio voluptas. A, assumenda commodi cupiditate deserunt harum inventore iusto labore, nihil officia placeat provident recusandae sapiente sunt tempora vitae? At consectetur eum harum hic minima minus quis rerum soluta vel.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur deserunt incidunt perferendis
+                quidem similique? Animi asperiores error explicabo facere harum impedit maxime minus mollitia nesciunt
+                quibusdam! Cupiditate dignissimos doloribus ducimus eum ex in iste pariatur praesentium quaerat, quo,
+                ratione rerum sapiente sunt, tempore tenetur unde voluptates voluptatum! Ad alias aperiam blanditiis,
+                corporis cumque delectus dolorem eius enim eos error eum ex excepturi facere, fuga, fugit impedit ipsa
+                itaque iure laboriosam magnam minus natus non nulla odio omnis perferendis placeat quaerat quam quas
+                quasi qui quibusdam recusandae reiciendis suscipit ullam voluptate voluptates. Cupiditate distinctio
+                perferendis porro voluptate. Aut cupiditate eum facere odio placeat quo, ratione? Accusamus accusantium
+                adipisci amet animi architecto asperiores atque aut beatae blanditiis commodi consectetur consequuntur
+                dolore doloremque enim eum eveniet fuga fugit id impedit incidunt ipsum, modi natus neque nesciunt
+                obcaecati officia officiis porro possimus praesentium quasi quod recusandae rem suscipit tempora tenetur
+                veritatis vitae. Aliquam aliquid assumenda beatae cumque debitis eum ex expedita harum ipsum minus modi
+                obcaecati, officiis perspiciatis placeat sit totam voluptate. Ducimus nostrum possimus sed soluta
+                tenetur? Ad dolorum impedit laborum necessitatibus, quas quia quis sunt veritatis vero voluptatum.
+                Cumque, doloribus expedita iste molestiae molestias numquam optio quos sit veritatis! Accusamus beatae
+                ducimus, esse excepturi fugit impedit libero maxime odio omnis, perspiciatis qui repudiandae sunt
+                temporibus, voluptas voluptatem. Accusamus, assumenda commodi dicta, doloribus eaque eum hic in
+                laboriosam magnam minima minus, nihil officia placeat repellendus saepe sed totam ullam. Atque, autem,
+                dicta distinctio ea explicabo fugiat illo ipsum iusto laboriosam laudantium magni molestias nostrum odit
+                officia pariatur praesentium quibusdam repellendus rerum similique totam? Amet, at aut blanditiis
+                consequatur earum explicabo harum nostrum, quasi repudiandae sapiente soluta velit voluptatem. A
+                accusamus ad animi asperiores atque beatae corporis dignissimos excepturi explicabo ipsam nemo neque
+                nobis numquam odio, omnis pariatur quam quibusdam quos reprehenderit, sit tenetur veniam voluptas
+                voluptatibus? Animi architecto distinctio et eveniet iure natus quod repellendus sint! Deserunt dolor
+                eos, ipsam odit officia quasi quod. Alias consequuntur delectus eius error illo incidunt natus nesciunt
+                odio officia praesentium quaerat quam quia, quis. Asperiores aspernatur assumenda cumque dignissimos
+                dolor dolores ea earum esse eveniet fugit laborum laudantium nam, neque odit quam quas ratione
+                reprehenderit sunt, tempore voluptatem! Alias aperiam beatae commodi, deserunt dolore doloribus eligendi
+                fugiat hic in inventore ipsa maxime molestias nobis numquam officia officiis porro quam quod quos rerum
+                sapiente sequi tempora ullam unde ut vero voluptatem. Earum excepturi quae ratione? Ab animi asperiores
+                consequatur delectus, deserunt ducimus ea eum facere illum magni maiores nemo non optio suscipit
+                temporibus ullam voluptatibus! Autem deserunt fuga fugiat laborum numquam temporibus, voluptas.
+                Accusamus adipisci aspernatur cumque dolor dolores, error expedita, facilis minima molestias mollitia
+                odio porro praesentium quidem tempora tempore unde voluptas. Aperiam culpa earum esse itaque minus
+                mollitia nam necessitatibus odit optio quae, rem sit vel voluptate? Atque autem corporis cum deserunt
+                dicta dolore ducimus excepturi fuga fugiat in ipsam itaque labore laboriosam magnam minus modi nobis,
+                officia omnis pariatur provident quidem quo, sint tempore tenetur ut veniam voluptate voluptatum?
+                Adipisci asperiores cupiditate deserunt ea magnam numquam sint voluptatem. Aut beatae cupiditate
+                doloremque ea minus, voluptas? Dolore enim iusto nam nobis officiis porro quia sed veniam. Architecto
+                asperiores, autem, delectus ea eligendi itaque libero magni nemo placeat quos sunt temporibus tenetur
+                totam. Accusamus accusantium aperiam at autem, corporis cum deserunt dolores earum eius eum
+                exercitationem explicabo hic ipsum laudantium magnam quae quod sapiente sed sequi ullam veniam
+                voluptatibus voluptatum. Est facere iste nisi ratione repellat. Aspernatur autem eaque eos non! Aliquid
+                consequatur debitis est itaque nam provident quam, quos? At consectetur delectus dignissimos dolor ea
+                eos error esse ipsam labore nesciunt, possimus quas quasi quisquam rerum sed totam, unde. Aliquid
+                commodi debitis distinctio doloremque nam placeat soluta totam ut? Autem consectetur corporis
+                dignissimos ea error illum ipsum laboriosam praesentium, quam quasi reprehenderit sequi tenetur ullam
+                unde vero voluptas voluptatem! Facilis ipsum odio voluptas. A, assumenda commodi cupiditate deserunt
+                harum inventore iusto labore, nihil officia placeat provident recusandae sapiente sunt tempora vitae? At
+                consectetur eum harum hic minima minus quis rerum soluta vel.</p>
         </div>
     </div>
 
     <button type="button" data-tippy-content="Kliknij aby zaakceptować" class="cookie-info">
-        <span><img src="${require('./assets/images/cookie-monster.png')}" alt="">Bardzo ważna informacja o ciasteczkach ¯\\_(ツ)_/¯</span>
+        <span><img data-src="${require('./assets/images/cookie-monster.png')}" class="lazyload" alt="">Bardzo ważna informacja o ciasteczkach ¯\\_(ツ)_/¯</span>
     </button>
 </main>
 <script src="scripts/anime.min.js"></script>

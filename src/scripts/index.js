@@ -4,6 +4,7 @@ import tippy, {followCursor} from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 import Cookies from 'js-cookie'
 import 'slick-carousel';
+import 'lazysizes';
 
 window.onload = function () {
     scrollSpy('#main-menu', {
@@ -32,8 +33,6 @@ window.onload = function () {
         $(this).addClass('person--active');
         description.hide();
         $(descriptionContainer).slideDown();
-        $('.person').parent().css('order', '2');
-        $(this).parent().css('order', '1');
     });
 
     $('.offer-puzzles__button').on('click', function () {
@@ -168,8 +167,16 @@ window.onload = function () {
         cookieInfoBar.remove();
     }
 
-    $('#privacy-button').on('click', () => {
+    $('#privacy-button, .privacy__button').on('click', () => {
         $('.privacy').toggleClass('privacy--opened');
+
+    });
+
+    $('dt').on('click', function() {
+        $('.faq__item').removeClass('faq__item--current');
+        $(this).parent().addClass('faq__item--current');
+        $('dd').slideUp();
+        $(this).next().slideDown();
     })
 
 };
