@@ -5,6 +5,7 @@ import 'tippy.js/dist/tippy.css';
 import Cookies from 'js-cookie'
 import 'slick-carousel';
 import 'lazysizes';
+import './src/styles/main.scss';
 
 window.onload = function () {
     scrollSpy('#main-menu', {
@@ -180,3 +181,5 @@ window.onload = function () {
     })
 
 };
+
+

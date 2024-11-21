@@ -7,13 +7,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="Description" content="Lddent - best of bests">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <!-- Add the slick-theme.css if you want default styling -->
-    <!-- webpack inject styles / don't modify this line -->
-
-    <link
-            rel="stylesheet"
-            href="<%=htmlWebpackPlugin.files.chunks.main.css %>"
-    />
     <link rel="icon" type="image/png" href="https://lddent.pl/img/icon.png"/>
     <style>
         .particles-button {
@@ -43,6 +36,7 @@
     </style>
 </head>
 <body>
+<div id="app"></div>
 <div class="loader" id="loader">
     <div>
         <img src="https://media.tenor.com/images/4e771dab5f6c9c35a771c2b8ea1e0e09/tenor.gif" alt="">
@@ -51,7 +45,7 @@
 </div>
 <aside class="aside">
     <a href="/" class="aside__logo" title="Go to home page" aria-label="Go to home page">
-        <img class="lazyload" data-src="${require('./assets/images/lddent-sidebar-logo.png')}" alt=""
+        <img class="lazyload" data-src="images/lddent-sidebar-logo.png" alt=""
              data-tippy-content="LDDENT"
              data-tippy-placement="right">
     </a>
@@ -60,37 +54,37 @@
             <li class="nav__item">
                 <a href="#home" aria-label="Strona główna" class="nav__link" data-tippy-content="Strona główna"
                    data-tippy-placement="right">
-                    <img class="nav__icon lazyload" data-src="${require('./assets/images/home.svg')}" alt="">
+                    <img class="nav__icon lazyload" data-src="images/home.svg" alt="">
                 </a>
             </li>
             <li class="nav__item">
                 <a href="#about" aria-label="O nas" class="nav__link" data-tippy-content="O nas"
                    data-tippy-placement="right">
-                    <img class="nav__icon lazyload" data-src="${require('./assets/images/about.svg')}" alt="">
+                    <img class="nav__icon lazyload" data-src="images/about.svg" alt="">
                 </a>
             </li>
             <li class="nav__item">
                 <a href="#offer" aria-label="Oferta" class="nav__link" data-tippy-content="Oferta"
                    data-tippy-placement="right">
-                    <img class="nav__icon lazyload" data-src="${require('./assets/images/offer.svg')}" alt="">
+                    <img class="nav__icon lazyload" data-src="images/offer.svg" alt="">
                 </a>
             </li>
             <li class="nav__item">
                 <a href="#faq" aria-label="Często zadawane pytania" class="nav__link"
                    data-tippy-content="Często zadawane pytania" data-tippy-placement="right">
-                    <img class="nav__icon lazyload" data-src="${require('./assets/images/faq.svg')}" alt="">
+                    <img class="nav__icon lazyload" data-src="images/faq.svg" alt="">
                 </a>
             </li>
             <li class="nav__item">
                 <a href="#contact" aria-label="Kontakt" class="nav__link" data-tippy-content="Kontakt"
                    data-tippy-placement="right">
-                    <img class="nav__icon lazyload" data-src="${require('./assets/images/contact.svg')}" alt="">
+                    <img class="nav__icon lazyload" data-src="images/contact.svg" alt="">
                 </a>
             </li>
             <li class="nav__item">
                 <a href="#" aria-label="Polityka prywatności" id="privacy-button" class="nav__link"
                    data-tippy-content="Polityka prywatności" data-tippy-placement="right">
-                    <img class="nav__icon lazyload" data-src="${require('./assets/images/list.svg')}" alt="">
+                    <img class="nav__icon lazyload" data-src="images/list.svg" alt="">
                 </a>
             </li>
         </ul>
@@ -102,7 +96,7 @@
 
     <button class="show-modal" title="Umów się na wizytęwizytę" id="show-modal"
             data-tippy-content="Umów się na wizytę !">
-        <img data-src="${require('./assets/images/show-modal-button.png')}" class="lazyload" alt="">
+        <img data-src="images/show-modal-button.png" class="lazyload" alt="">
     </button>
 
     <div class="modal__wrapper" role="dialog">
@@ -156,10 +150,10 @@
     <div class="content">
         <div class="slick">
             <div>
-                <img data-src="${require('./assets/images/home.webp')}" class="lazyload" alt="">
+                <img data-src="images/home.webp" class="lazyload" alt="">
             </div>
             <div>
-                <img data-src="${require('./assets/images/home-2.webp')}" class="lazyload" alt="">
+                <img data-src="images/home-2.webp" class="lazyload" alt="">
             </div>
         </div>
 
@@ -185,7 +179,7 @@
                     <li class="persons__item">
                         <a href="#person-description" class="person person--active" data-person="first">
                     <span class="person__image">
-                        <img data-src="${require('./assets/images/person-1.webp')}" class="lazyload"
+                        <img data-src="images/person-1.webp" class="lazyload"
                              alt="Lek. stom. Lidia Danielewska">
                         <span class="person__name">
                             <span>Lek. stom.</span>
@@ -197,7 +191,7 @@
                     <li class="persons__item">
                         <a href="#person-description" class="person" data-person="second">
                     <span class="person__image">
-                        <img data-src="${require('./assets/images/person-2.webp')}" class="lazyload"
+                        <img data-src="images/person-2.webp" class="lazyload"
                              alt="Lek. stom. Sylwia Smyk">
                                                     <span class="person__name">
                         <span>Lek. stom.</span>
@@ -210,7 +204,7 @@
                     <li class="persons__item">
                         <a href="#person-description" class="person" data-person="third">
                     <span class="person__image">
-                        <img data-src="${require('./assets/images/person-3.webp')}" class="lazyload"
+                        <img data-src="images/person-3.webp" class="lazyload"
                              alt="Hig. STOM. Anna Polkowska">
                                                   <span class="person__name ">
                         <span>Hig. STOM.</span>
@@ -583,7 +577,7 @@
                         <a href="https://www.mediraty.pl/formularz/index.php" target="_blank" rel="noopener noreferrer"
                            class="payments-list__link">
                         <span class="payments-list__icon">
-                            <img data-src="${require('./assets/images/installments.png')}"
+                            <img data-src="images/installments.png"
                                  class="payments-list__image lazyload"
                                  alt="installments">
                         </span>
@@ -684,7 +678,7 @@
 
     <footer class="footer">
         <a href="" class="footer__logo">
-            <img data-src="${require('./assets/images/logo.png')}" class="footer__image lazyload" alt="logo">
+            <img data-src="images/logo.png" class="footer__image lazyload" alt="logo">
         </a>
         <p class="footer__text">© Copyright 2020 - <a href="https://lddent.pl" class="footer__link">lddent</a>. All
             rights
@@ -752,13 +746,13 @@
     </div>
 
     <button type="button" data-tippy-content="Kliknij aby zaakceptować" class="cookie-info">
-        <span><img data-src="${require('./assets/images/cookie-monster.png')}" class="lazyload" alt="">Bardzo ważna informacja o ciasteczkach ¯\\_(ツ)_/¯</span>
+        <span><img data-src="images/cookie-monster.png" class="lazyload" alt="">Bardzo ważna informacja o ciasteczkach ¯\\_(ツ)_/¯</span>
     </button>
 </main>
-<script src="scripts/anime.min.js"></script>
-<script src="scripts/particles.js"></script>
+<script type="module" src="/main.js"></script>
+<script src="src/scripts/anime.min.js"></script>
+<script src="src/scripts/particles.js"></script>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<!-- webpack inject script file / don't modify this line -->
-<script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+
 </body>
 </html>
