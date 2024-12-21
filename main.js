@@ -88,6 +88,9 @@ window.onload = function () {
                 person: $('#visit-person').val(),
                 phone: $('#visit-phone').val()
             };
+
+            $('.modal__error').text('Wiadomość została wysłana, okienko zamknie się za 5sekund')
+
             fetch('http://lddent.bpc-dev.pl/mail.php', {
                 method: 'POST',
                 headers: {
@@ -173,11 +176,44 @@ window.onload = function () {
 
     });
 
-    $('dt').on('click', function() {
-        $('.faq__item').removeClass('faq__item--current');
-        $(this).parent().addClass('faq__item--current');
-        $('dd').slideUp();
-        $(this).next().slideDown();
+    $(".faq__item").on("click", function() {
+        const $clickedItem = $(this);
+        const $currentDd   = $clickedItem.find("dd");
+
+        if ($clickedItem.hasClass("faq__item--current")) {
+            // If already open, simply close it
+            $clickedItem.removeClass("faq__item--current");
+            $currentDd.slideUp();
+        } else {
+            // Close any previously open item
+            $(".faq__item--current")
+                .removeClass("faq__item--current")
+                .find("dd")
+                .slideUp();
+
+            // Open the clicked item
+            $clickedItem.addClass("faq__item--current");
+            $currentDd.slideDown();
+        }
+    });
+
+    const select = document.querySelector('.contact-form__select');
+
+    select.addEventListener('change', (e) => {
+        if (select.value === 'booking') {
+            $('.modal__wrapper').css('display', 'flex');
+        }
+
+        select.value = "question";
+    })
+
+
+    document.querySelector('.modal').addEventListener('click', e => {
+        e.stopPropagation()
+    })
+
+    document.querySelector('.modal__wrapper').addEventListener('click', e => {
+        $('.modal__wrapper').css('display', 'none');
     })
 
 };

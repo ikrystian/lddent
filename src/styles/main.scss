@@ -1,22 +1,56 @@
- @import 'abstracts/_variables';
-@import 'abstracts/_mixins';
-
+$bp-small: 34.375em; // 550px;
+$bp-medium: 47.5em; // 760px;
+$bp-desktop: 64em; // 1024px;
+$bp-wide: 105em; // 1680px;
 $container-width: 1360px;
+
+@mixin res($breakpoint) {
+  @if $breakpoint == wide {
+    @media only screen and (min-width: $bp-wide) {
+      @content;
+    } //1680
+  }
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: $bp-desktop) {
+      @content;
+    } //1024px;
+  }
+  @if $breakpoint == tab {
+    @media only screen and (min-width: $bp-medium) {
+      @content;
+    } //760px;
+  }
+  @if $breakpoint == phone {
+    @media only screen and (min-width: $bp-small) {
+      @content;
+    } //550px;
+  }
+}
+
+@mixin gradient-overlay() {
+  background: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 :root {
   --primary-color: #31abd6;
-  --secondary-color: #65C0AA;
-  --third-color: #8F96A5;
-  --fourth-color: #3A444D;
-  --font-color: #39444D;
-  --disabled-color: #CDD2DE;
+  --secondary-color: #65c0aa;
+  --third-color: #8f96a5;
+  --fourth-color: #3a444d;
+  --font-color: #39444d;
+  --disabled-color: #cdd2de;
   --nav-link-color: #fff;
-  --nav-link-active-color: #3A444D;
+  --nav-link-active-color: #3a444d;
   --sidenav-background: rgba(0, 0, 0, 0.6);
   --person-name-color: #fff;
   --person-image-background: #fff;
   --person-box-shadow-color: rgba(145, 190, 234, 54%);
-  --secondary-section-background-color: #F8FAFD;
+  --secondary-section-background-color: #f8fafd;
   --contact-form-background-color: #fff;
   --warn-color: red;
   --footer-background-color: #3a444d;
@@ -54,7 +88,7 @@ html {
 
 body {
   font-size: 16px;
-  font-family: Calibri, 'sans-serif';
+  font-family: Calibri, "sans-serif";
   min-height: 100vh;
   color: var(--font-color);
   padding-left: var(--nav-width);
@@ -73,7 +107,11 @@ body {
   justify-content: space-evenly;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
   z-index: 5;
-  background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(
+    to bottom,
+    var(--primary-color),
+    var(--secondary-color)
+  );
 
   &__logo {
     position: absolute;
@@ -144,7 +182,6 @@ body {
   cursor: pointer;
   text-decoration: none;
 
-
   @include res(tab) {
     width: 260px;
   }
@@ -159,7 +196,6 @@ body {
     img {
       transform: scale(1.1);
     }
-
   }
 
   &--active {
@@ -174,7 +210,9 @@ body {
     background-color: var(--person-image-background);
     opacity: 0.5;
     clip-path: circle(40% at 50% 50%);
-    transition: opacity 0.2s ease, clip-path 0.1s ease;
+    transition:
+      opacity 0.2s ease,
+      clip-path 0.1s ease;
     position: relative;
 
     &:hover {
@@ -269,7 +307,6 @@ body {
   }
 }
 
-
 .person-description {
   padding: 0.5rem;
   font-size: 1.125em;
@@ -322,14 +359,18 @@ body {
       @include gradient-overlay();
 
       &::after {
-        content: '';
+        content: "";
         display: block;
         height: 2px;
         position: absolute;
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        background: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--secondary-color)
+        );
       }
     }
   }
@@ -361,11 +402,15 @@ body {
     }
 
     &::after {
-      content: '';
+      content: "";
       display: block;
       width: 8px;
       height: 8px;
-      background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+      background: linear-gradient(
+        to bottom,
+        var(--primary-color),
+        var(--secondary-color)
+      );
       position: absolute;
       left: 0;
       top: 16px;
@@ -475,7 +520,6 @@ body {
       width: 170px;
     }
 
-
     svg {
       transform: scale(0.7);
 
@@ -487,7 +531,11 @@ body {
     &--active,
     &:hover,
     &:focus {
-      background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      background-image: linear-gradient(
+        to right,
+        var(--primary-color),
+        var(--secondary-color)
+      );
       border-color: #fff;
 
       svg {
@@ -528,12 +576,14 @@ body {
 
   svg {
     opacity: 0.6;
-    transition: opacity 0.2s, transform 0.2s;
+    transition:
+      opacity 0.2s,
+      transform 0.2s;
   }
 }
 
 .payment {
-  background: url('../assets/images/payments.webp') center no-repeat;
+  background: url("/images/payments.webp") center no-repeat;
   background-size: cover;
 }
 
@@ -603,7 +653,9 @@ body {
 
   &__image {
     opacity: 0.3;
-    transition: opacity 0.2s, transform 0.2s;
+    transition:
+      opacity 0.2s,
+      transform 0.2s;
     width: 260px;
     height: auto;
   }
@@ -638,7 +690,6 @@ body {
 }
 
 .contact-form {
-
   @include res(tab) {
     margin-right: 2rem;
     min-width: 400px;
@@ -658,6 +709,7 @@ body {
   }
 
   &__input,
+  &__select,
   &__textarea {
     padding: 0.5rem 1rem;
     font-size: 1em;
@@ -667,6 +719,14 @@ body {
 
     &:focus {
       border-right-color: var(--secondary-color);
+    }
+  }
+
+  &__select {
+    background-color: #fff;
+
+    &:hover {
+      cursor: pointer;
     }
   }
 
@@ -689,7 +749,7 @@ body {
         opacity: 1;
       }
 
-      &[type=reset] {
+      &[type="reset"] {
         background-color: var(--secondary-color);
         border: 1px solid var(--secondary-color);
       }
@@ -698,7 +758,6 @@ body {
 }
 
 .contact-info {
-
   &__container {
     display: flex;
     justify-content: space-between;
@@ -788,7 +847,6 @@ body {
   background: var(--footer-background-color);
   padding: 0.5rem;
   text-align: center;
-  color: var(--footer-color);
 
   @include res(phone) {
     padding: 1rem;
@@ -874,7 +932,7 @@ body {
   &__title {
     font-size: 3rem;
     color: #fff;
-    text-transform: uppercase
+    text-transform: uppercase;
   }
 
   &__button {
@@ -886,7 +944,11 @@ body {
     font-size: 1em;
     border: 0;
     cursor: pointer;
-    background: linear-gradient(-45deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(
+      -45deg,
+      var(--primary-color),
+      var(--secondary-color)
+    );
     color: #fff;
     background-size: 400% 400%;
     animation: gradient 3s ease infinite;
@@ -931,13 +993,12 @@ body {
       top: -1rem;
       background-color: #fff;
       border-radius: 2rem 2rem 0 0;
-      content: '';
+      content: "";
       display: block;
       z-index: 4;
       height: 2rem;
       opacity: 0.1;
     }
-
 
     &::after {
       position: absolute;
@@ -946,7 +1007,7 @@ body {
       top: -2rem;
       background-color: #fff;
       border-radius: 2rem 2rem 0 0;
-      content: '';
+      content: "";
       display: block;
       z-index: 3;
       height: 2.5rem;
@@ -963,7 +1024,7 @@ body {
   &:hover {
     polygon {
       fill: var(--secondary-color);
-      transition: all .2s ease-out;
+      transition: all 0.2s ease-out;
 
       &.arrow-bottom {
         transform: translateY(-18px);
@@ -978,16 +1039,15 @@ body {
 
 polygon {
   fill: var(--primary-color);
-  transition: all .2s ease-out;
+  transition: all 0.2s ease-out;
 
   &.arrow-middle {
     opacity: 0.75;
   }
 
   &.arrow-top {
-    opacity: 0.5
+    opacity: 0.5;
   }
-
 }
 
 .modal {
@@ -1022,7 +1082,6 @@ polygon {
     z-index: 13;
   }
 
-
   &__header,
   &__footer {
     padding: 0.5rem 1rem;
@@ -1039,7 +1098,7 @@ polygon {
   &__image {
     width: 200px;
     height: 420px;
-    background: url('../assets/images/modal-bg.jpg') left bottom no-repeat;
+    background: url("/images/modal-bg.jpg") left bottom no-repeat;
     background-size: cover;
     position: absolute;
     left: 1rem;
@@ -1067,15 +1126,18 @@ polygon {
     outline: none;
 
     i {
-      transition: color 0.2s, transform 0.2s;
+      transition:
+        color 0.2s,
+        transform 0.2s;
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: rgba(0, 0, 0, 0.05);
 
       i {
         color: var(--primary-color);
-        transform: rotate(90deg)
+        transform: rotate(90deg);
       }
     }
   }
@@ -1083,7 +1145,7 @@ polygon {
   &__content {
     padding: 0.5rem 1rem;
     min-height: 300px;
-    max-height: calc(95vh - 82px)
+    max-height: calc(95vh - 82px);
   }
 
   &__error {
@@ -1127,14 +1189,14 @@ polygon {
       margin-bottom: 0.25rem;
     }
 
-    input[type=text],
-    input[type=date],
+    input[type="text"],
+    input[type="date"],
     select,
     textarea {
       padding: 0.5rem;
       outline: none;
       border: 1px solid #dedede;
-      font-family: Calibri, 'sans-serif';
+      font-family: Calibri, "sans-serif";
       font-size: 1em;
 
       &:focus {
@@ -1142,7 +1204,7 @@ polygon {
       }
     }
 
-    input[type=date],
+    input[type="date"],
     select {
       cursor: pointer;
     }
@@ -1181,11 +1243,11 @@ polygon {
   z-index: 12;
   outline: none;
   cursor: pointer;
-  animation: shake 1s cubic-bezier(.36, .07, .19, .97) 3;
+  animation: shake 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) 3;
 
   &:hover,
   &:focus {
-    animation: shake 1s cubic-bezier(.36, .07, .19, .97) 3;
+    animation: shake 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) 3;
   }
 
   img {
@@ -1326,17 +1388,22 @@ polygon {
 
   @include res(tab) {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 
   &__column {
     @include res(tab) {
-      width: 50%;
+      flex: 50%;
       padding: 1rem;
+      p {
+        font-size: 15px;
+        line-height: 1.6;
+      }
     }
   }
 
   &__item {
-    box-shadow: 0 10px 50px 0 rgba(53, 82, 99, .09);
+    box-shadow: 0 10px 50px 0 rgba(53, 82, 99, 0.09);
     background-color: #f8fafd;
     border: 1px solid rgba(0, 0, 0, 0.02);
     padding: 20px 55px 20px 40px;
@@ -1357,11 +1424,13 @@ polygon {
 
     &::after {
       position: absolute;
-      content: '+';
+      content: "+";
       font-size: 2em;
       right: 0.5rem;
       top: 0.5rem;
-      transition: color 0.2s ease, transform 1s ease;
+      transition:
+        color 0.2s ease,
+        transform 1s ease;
     }
   }
 
@@ -1377,24 +1446,32 @@ polygon {
 
   dd {
     display: none;
-  }
 
+    p {
+      padding-block: 0.5rem;
+    }
+  }
 }
 
 @keyframes shake {
-  10%, 90% {
+  10%,
+  90% {
     transform: translate3d(-1px, 0, 0);
   }
 
-  20%, 80% {
+  20%,
+  80% {
     transform: translate3d(2px, 0, 0);
   }
 
-  30%, 50%, 70% {
+  30%,
+  50%,
+  70% {
     transform: translate3d(-4px, 0, 0);
   }
 
-  40%, 60% {
+  40%,
+  60% {
     transform: translate3d(4px, 0, 0);
   }
 }
@@ -1410,4 +1487,3 @@ polygon {
     background-position: 0% 50%;
   }
 }
-
