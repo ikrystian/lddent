@@ -8,6 +8,7 @@
     <meta name="Description" content="Lddent - best of bests">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="icon" type="image/png" href="https://lddent.pl/img/icon.png"/>
+    <script src="https://assets.codepen.io/16327/SplitText3.min.js"></script>
     <style>
         .particles-button {
             background: #77c9c5;
@@ -147,29 +148,59 @@
     </div>
 
     <div class="content">
-        <div class="slick">
-            <div>
-                <img data-src="images/home.webp" class="lazyload" alt="">
-            </div>
-            <div>
-                <img data-src="images/home-2.webp" class="lazyload" alt="">
-            </div>
-        </div>
+        <section class="hero">
+            <div id="particles-js" class="hero__particles"></div>
 
-        <section class="section home" id="home" style="margin-top: -75vh;">
-            <div id="particles-js" class="home__particles"></div>
-
-            <img data-src="https://lddent.pl/img/lddent.png" class="lazyload" alt="">
-            <h1 class="home__title">Stomatologia</h1>
-            <button class="home__button" style="z-index: 5;">Umów się na wizytę</button>
-            <a href="#about" class="home__link" aria-label="Got to about section">
-                <svg class="home__icon more-arrows">
-                    <polygon class="arrow-top" points="37.6,27.9 1.8,1.3 3.3,0 37.6,25.3 71.9,0 73.7,1.3 "/>
-                    <polygon class="arrow-middle" points="37.6,45.8 0.8,18.7 4.4,16.4 37.6,41.2 71.2,16.4 74.5,18.7 "/>
-                    <polygon class="arrow-bottom" points="37.6,64 0,36.1 5.1,32.8 37.6,56.8 70.4,32.8 75.5,36.1 "/>
-                </svg>
-            </a>
+            <div class="container">
+                <div class="row">
+                    <div class="column">
+                        <h1 id="heading">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae culpa dolor doloremque est optio rerum sunt vero voluptatibus. Ea, molestias.</p>
+                        <button>Book Appointment</button>
+                    </div>
+                    <div class="column">
+                        <div class="hero-images">
+                            <div class="hero-image-box">
+                                <figure>
+                                <img src="images/hero-image-1.jpg" alt="">
+                                </figure>
+                                <figure>
+                                <img src="images/hero-image-2.jpg" alt="">
+                                </figure>
+                            </div>
+                            <div class="hero-image-box">
+                                <figure>
+                                <img src="images/hero-image-3.jpg" alt="">
+                                </figure>
+                                <figure>
+                                <img src="images/hero-image-4.jpg" alt="">
+                                </figure>
+                            </div>
+                            <div class="hero-image-box">
+                                <figure>
+                                <img src="images/hero-image-5.jpg" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <!--        <section class="section home" id="home" style="margin-top: -75vh;">-->
+        <!--            <div id="particles-js" class="home__particles"></div>-->
+
+        <!--            <img data-src="https://lddent.pl/img/lddent.png" class="lazyload" alt="">-->
+        <!--            <h1 class="home__title">Stomatologia</h1>-->
+        <!--            <button class="home__button" style="z-index: 5;">Umów się na wizytę</button>-->
+        <!--            <a href="#about" class="home__link" aria-label="Got to about section">-->
+        <!--                <svg class="home__icon more-arrows">-->
+        <!--                    <polygon class="arrow-top" points="37.6,27.9 1.8,1.3 3.3,0 37.6,25.3 71.9,0 73.7,1.3 "/>-->
+        <!--                    <polygon class="arrow-middle" points="37.6,45.8 0.8,18.7 4.4,16.4 37.6,41.2 71.2,16.4 74.5,18.7 "/>-->
+        <!--                    <polygon class="arrow-bottom" points="37.6,64 0,36.1 5.1,32.8 37.6,56.8 70.4,32.8 75.5,36.1 "/>-->
+        <!--                </svg>-->
+        <!--            </a>-->
+        <!--        </section>-->
         <section class="section about" id="about">
 
             <div class="section__container container about__container">
@@ -255,6 +286,97 @@
                         </ul>
                     </div>
 
+                </div>
+            </div>
+        </section>
+        <section class="our-offer" id="our-offer">
+            <p class="our-offer__subheading">Nasza oferta</p>
+            <h2 class="our-offer__heading">W czym jesteśmy najlepsi?</h2>
+            <div class="our-offer-grid">
+                <div class="our-offer-grid__column">
+
+                    <div class="our-offer-grid__box our-offer-grid__box">
+                        <div class="our-offer-grid__text  text-right">
+                            <h4>Root Canal</h4>
+                            <p>Aenean eleifend turpis tellus, nec laoreet metus elementum ac.</p>
+                        </div>
+                        <div class="our-offer-grid__icon our-offer-grid__icon--right">
+                            <img src="images/fe-icon01.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="our-offer-grid__box">
+                        <div class="our-offer-grid__text text-right">
+                            <h4>Root Canal</h4>
+                            <p>Aenean eleifend turpis tellus, nec laoreet metus elementum ac.</p>
+                        </div>
+                        <div class="our-offer-grid__icon our-offer-grid__icon--right">
+                            <img src="images/fe-icon05.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="our-offer-grid__box">
+                        <div class="our-offer-grid__text  text-right">
+                            <h4>Root Canal</h4>
+                            <p>Aenean eleifend turpis tellus, nec laoreet metus elementum ac.</p>
+                        </div>
+                        <div class="our-offer-grid__icon our-offer-grid__icon--right">
+                            <img src="images/fe-icon07.png" alt="">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="our-offer-grid__column">
+                    <img src="images/services-img-details2.png" alt="">
+                </div>
+                <div class="our-offer-grid__column">
+
+                    <div class="our-offer-grid__box our-offer-grid__box--revert">
+                        <div class="our-offer-grid__text">
+                            <h4>Root Canal</h4>
+                            <p>Aenean eleifend turpis tellus, nec laoreet metus elementum ac.</p>
+                        </div>
+                        <div class="our-offer-grid__icon our-offer-grid__icon--left">
+                            <img src="images/fe-icon04.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="our-offer-grid__box our-offer-grid__box--revert">
+                        <div class="our-offer-grid__text">
+                            <h4>Root Canal</h4>
+                            <p>Aenean eleifend turpis tellus, nec laoreet metus elementum ac.</p>
+                        </div>
+                        <div class="our-offer-grid__icon our-offer-grid__icon--left">
+                            <img src="images/fe-icon06.png" alt="">
+                        </div>
+                    </div>
+
+                    <div class="our-offer-grid__box our-offer-grid__box--revert">
+                        <div class="our-offer-grid__text">
+                            <h4>Root Canal</h4>
+                            <p>Aenean eleifend turpis tellus, nec laoreet metus elementum ac.</p>
+                        </div>
+                        <div class="our-offer-grid__icon our-offer-grid__icon--left">
+                            <img src="images/fe-icon08.png" alt="">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="provide-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div>
+                        <h2>Experience comfort, technnology, and care at our advanced dental facility</h2>
+                        <p>We believe that a welcoming, state-of-the-art facility is key to delivering exceptional
+                            dental care. Our practice is designed not only to provide cutting-edge treatments but also
+                            to create an environment where patients feel relaxed and confident in their care.</p>
+                    </div>
+                    <div>
+                        <img src="images/we-provide-image.jpg" alt="">
+                    </div>
                 </div>
             </div>
         </section>
@@ -564,6 +686,33 @@
             </div>
         </section>
 
+        <section class="beta-faq beta-section">
+            <div class="beta-section__header">
+                <p class="beta-section__subheading">FAQ's</p>
+                <h2 class="beta-section__heading beta-section__heading--no-margin">Często Zadawane Pytania</h2>
+                <p >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur autem beatae facere odio omnis reiciendis sint? Accusantium doloremque et eum harum, id iusto, molestias porro rem repudiandae saepe unde?</p>
+
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="column column-faq">\
+                    asd
+                    </div>
+                    <div class="column column-cta">
+                        <div class="faq-cta-image">
+                            <figure>
+                                <img src="images/faq-cta-image.jpg" alt="">
+                            </figure>
+                            <div class="faq-cta-item">
+                                <div>Masz jakieś inne pytania?</div>
+                                <div>Zadzwoń do nas! 536 536 536</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </div>
+        </section>
+
         <section class="section faq__section" id="faq">
             <h2 class="section__title">Często zadawane pytania</h2>
             <div class="container">
@@ -574,9 +723,21 @@
                             <dt>Skąd bierze się kamień nazębny?</dt>
                             <dd>
 
-                                <p>Zaskakującym dla Pacjentów może być, że pomimo braku nałogów i codziennego mycia zębów, kamień nazębny wciąż się pojawia. Poniżej wyjaśniamy, czym jest kamień nazębny, dlaczego powstaje i jak można go skutecznie usuwać.</p>
-                                <p>✅ Płytka nazębna składa się z martwych komórek błony śluzowej jamy ustnej oraz z bakterii tworzących biofilm i przyczyniających się do powstawania próchnicy.</p>
-                                <p>Kamień nazębny to płytka nazębna, która uległa mineralizacji, stwardnieniu i może występować zarówno na powierzchniach nad i poddziąsłowych. Proces mineralizacji zaczyna się już po kilkudziesięciu godzinach od ostatniego czyszczenia zębów. Gdy nie myjesz zębów zbyt dokładnie, wówczas tam, gdzie nie sięga szczoteczka do zębów lub nić dentystyczna nawarstwia się płytka bakteryjna, która w niedługim czasie ulega mineralizacji i przekształca się w nieestetyczny kamień nazębny. Kamień naddziąsłowy zazwyczaj ma kolor żółty i może ciemnieć pod wpływem kawy lub herbaty, ale jego przyczyną nie są te używki, a bakterie nagromadzone na zębach. Z kolei kamień poddziąsłowy jest przeważnie ciemny przez rozpad krwi, który towarzyszy zapaleniom dziąseł i innych struktur przyzębia.</p>
+                                <p>Zaskakującym dla Pacjentów może być, że pomimo braku nałogów i codziennego mycia
+                                    zębów, kamień nazębny wciąż się pojawia. Poniżej wyjaśniamy, czym jest kamień
+                                    nazębny, dlaczego powstaje i jak można go skutecznie usuwać.</p>
+                                <p>✅ Płytka nazębna składa się z martwych komórek błony śluzowej jamy ustnej oraz z
+                                    bakterii tworzących biofilm i przyczyniających się do powstawania próchnicy.</p>
+                                <p>Kamień nazębny to płytka nazębna, która uległa mineralizacji, stwardnieniu i może
+                                    występować zarówno na powierzchniach nad i poddziąsłowych. Proces mineralizacji
+                                    zaczyna się już po kilkudziesięciu godzinach od ostatniego czyszczenia zębów. Gdy
+                                    nie myjesz zębów zbyt dokładnie, wówczas tam, gdzie nie sięga szczoteczka do zębów
+                                    lub nić dentystyczna nawarstwia się płytka bakteryjna, która w niedługim czasie
+                                    ulega mineralizacji i przekształca się w nieestetyczny kamień nazębny. Kamień
+                                    naddziąsłowy zazwyczaj ma kolor żółty i może ciemnieć pod wpływem kawy lub herbaty,
+                                    ale jego przyczyną nie są te używki, a bakterie nagromadzone na zębach. Z kolei
+                                    kamień poddziąsłowy jest przeważnie ciemny przez rozpad krwi, który towarzyszy
+                                    zapaleniom dziąseł i innych struktur przyzębia.</p>
 
 
                             </dd>
@@ -586,7 +747,14 @@
                     <div class="faq__column">
                         <div class="faq__item">
                             <dt>Czy kamień nazębny jest niebezpieczny?</dt>
-                            <dd><p>Nie dość, że jest nieestetyczny, to przede wszystkim stanowi zagrożenie dla stanu uzębienia. Na zmineralizowanej płytce nazębnej bytują bakterie żywiące się resztkami pokarmowymi. Są one odpowiedzialne za produkcję kwasów, które powodują demineralizację i uszkodzenie szkliwa, co w konsekwencji prowadzi do próchnicy. Kamień poddziąsłowy może przyczyniać się do chorób dziąseł i przyzębia – paradontozy czy zapalenia dziąseł oraz powoduje nieświeży oddech, który utrzymuje się nawet pomimo codziennego mycia zębów. Kamień ten jest zwykle niewidoczny dla Pacjenta, a jednym z jego objawów mogą być krwawiące dziąsła.</p></dd>
+                            <dd><p>Nie dość, że jest nieestetyczny, to przede wszystkim stanowi zagrożenie dla stanu
+                                uzębienia. Na zmineralizowanej płytce nazębnej bytują bakterie żywiące się resztkami
+                                pokarmowymi. Są one odpowiedzialne za produkcję kwasów, które powodują demineralizację i
+                                uszkodzenie szkliwa, co w konsekwencji prowadzi do próchnicy. Kamień poddziąsłowy może
+                                przyczyniać się do chorób dziąseł i przyzębia – paradontozy czy zapalenia dziąseł oraz
+                                powoduje nieświeży oddech, który utrzymuje się nawet pomimo codziennego mycia zębów.
+                                Kamień ten jest zwykle niewidoczny dla Pacjenta, a jednym z jego objawów mogą być
+                                krwawiące dziąsła.</p></dd>
                         </div>
 
                     </div>
@@ -595,9 +763,24 @@
                         <div class="faq__item">
                             <dt>Jak zatem zapobiegać powstawaniu kamienia nazębnego?</dt>
                             <dd>
-                                <p>Picie kawy czy herbaty nie jest głównym powodem powstawania kamienia nazębnego – jego główną przyczyną jest niedokładne mycie zębów, a co za tym idzie niedokładne usuwanie płytki nazębnej (bakterii). Aby zapobiegać powstawaniu kamienia nazębnego powinno wdrożyć się prawidłowe nawyki higieniczne – myć zęby minimum 2 razy dziennie, przez co najmniej 3 minuty, odpowiednią techniką, zwracając szczególną uwagę na powierzchnie językowe dolnych zębów przednich. Nie zapominamy także o nitce do zębów! Dokładnych informacji możecie zasięgnąć Państwo na wizycie stomatologicznej w naszym gabinecie, na której lekarz pokaże odpowiednią dla państwa szczoteczkę i inne narzędzia oraz indywidualną technikę szczotkowania.</p>
-                                <p>✅ Jeśli już kamień pojawi się na zębach to nie należy zwlekać z wizytą u stomatologa lub higienistki stomatologicznej. Podstawową metodą usuwania kamienia nazębnego jest skaling, czyli zdejmowanie go mechaniczne w gabinecie. Najczęściej przeprowadza się skaling ultradźwiękowy przy użyciu skalera, czyli urządzenia, które wytwarza ultradźwięki rozbijając kamień. Czyszczenie zębów z kamienia powinna zakończyć fluoryzacja.</p>
-                                <p>Nie polecamy zwlekania z usuwaniem kamienia nazębnego – jeśli zęby "obrosną” grubą warstwą kamienia konieczne będzie przeprowadzenie zabiegu w kilku etapach rozłożonych na kilka wizyt.</p>
+                                <p>Picie kawy czy herbaty nie jest głównym powodem powstawania kamienia nazębnego – jego
+                                    główną przyczyną jest niedokładne mycie zębów, a co za tym idzie niedokładne
+                                    usuwanie płytki nazębnej (bakterii). Aby zapobiegać powstawaniu kamienia nazębnego
+                                    powinno wdrożyć się prawidłowe nawyki higieniczne – myć zęby minimum 2 razy
+                                    dziennie, przez co najmniej 3 minuty, odpowiednią techniką, zwracając szczególną
+                                    uwagę na powierzchnie językowe dolnych zębów przednich. Nie zapominamy także o nitce
+                                    do zębów! Dokładnych informacji możecie zasięgnąć Państwo na wizycie
+                                    stomatologicznej w naszym gabinecie, na której lekarz pokaże odpowiednią dla państwa
+                                    szczoteczkę i inne narzędzia oraz indywidualną technikę szczotkowania.</p>
+                                <p>✅ Jeśli już kamień pojawi się na zębach to nie należy zwlekać z wizytą u stomatologa
+                                    lub higienistki stomatologicznej. Podstawową metodą usuwania kamienia nazębnego jest
+                                    skaling, czyli zdejmowanie go mechaniczne w gabinecie. Najczęściej przeprowadza się
+                                    skaling ultradźwiękowy przy użyciu skalera, czyli urządzenia, które wytwarza
+                                    ultradźwięki rozbijając kamień. Czyszczenie zębów z kamienia powinna zakończyć
+                                    fluoryzacja.</p>
+                                <p>Nie polecamy zwlekania z usuwaniem kamienia nazębnego – jeśli zęby "obrosną” grubą
+                                    warstwą kamienia konieczne będzie przeprowadzenie zabiegu w kilku etapach
+                                    rozłożonych na kilka wizyt.</p>
                             </dd>
                         </div>
 
@@ -607,10 +790,15 @@
                         <div class="faq__item">
                             <dt>Jak prawidłowo czyścić język?</dt>
                             <dd>
-                                <p>Czyszczenie języka powinno być nieodłączną częścią codziennej higieny jamy ustnej każdego człowieka, a szczególnie osób z chorym przyzębiem - paradontozą. Wielu z nas niestety zapomina o tej konieczności lub nie zdaje sobie z niej sprawy.</p>
-                                <p>Język to mięsień wypełniający praktycznie całą przestrzeń jamy ustnej i ma stały kontakt z policzkami, podniebieniem oraz zębami. Powierzchnia języka jest nierówna – składa się z brodawek, które są idealnym miejscem do akumulacji bakterii.</p>
+                                <p>Czyszczenie języka powinno być nieodłączną częścią codziennej higieny jamy ustnej
+                                    każdego człowieka, a szczególnie osób z chorym przyzębiem - paradontozą. Wielu z nas
+                                    niestety zapomina o tej konieczności lub nie zdaje sobie z niej sprawy.</p>
+                                <p>Język to mięsień wypełniający praktycznie całą przestrzeń jamy ustnej i ma stały
+                                    kontakt z policzkami, podniebieniem oraz zębami. Powierzchnia języka jest nierówna –
+                                    składa się z brodawek, które są idealnym miejscem do akumulacji bakterii.</p>
                                 <p>Dlatego higiena tego narządu jest tak ważna!</p>
-                                <p>Bakterie, które bytują na powierzchni języka wytwarzają związki lotne siarki, które w dużej mierze są odpowiedzialne za nieprzyjemny zapach z ust.</p>
+                                <p>Bakterie, które bytują na powierzchni języka wytwarzają związki lotne siarki, które w
+                                    dużej mierze są odpowiedzialne za nieprzyjemny zapach z ust.</p>
                                 Osoby szczególnie narażone na nadmierny rozwój bakterii na języku to:
                                 <ul>
                                     <li>kobiety w pierwszych tygodniach ciąży, które cierpią na mdłości,</li>
@@ -626,8 +814,14 @@
                         <div class="faq__item">
                             <dt>Jak zatem prawidłowo dbać o higienę języka?</dt>
                             <dd>
-                                <p>Przede wszystkim należy go codziennie dokładnie czyścić – można używać do tego specjalnych skrobaczek do języka lub szczoteczek, które na części grzbietowej posiadają specjalne gumki. Język należy czyścić delikatnym ruchem szorującym, prowadzonym od wnętrza jamy ustnej do koniuszka języka, uważając aby nie umieścić szczotki/skrobaczki zbyt głęboko, może to spowodować odruch wymiotny. Ruch powtarzamy kilkukrotnie, aż do osiągnięcia czystej powierzchni.</p>
-                                <p>Odpowiednie narzędzie do higieny języka mogą Państwo dobrać w naszym gabinecie z pomocą lekarza.</p>
+                                <p>Przede wszystkim należy go codziennie dokładnie czyścić – można używać do tego
+                                    specjalnych skrobaczek do języka lub szczoteczek, które na części grzbietowej
+                                    posiadają specjalne gumki. Język należy czyścić delikatnym ruchem szorującym,
+                                    prowadzonym od wnętrza jamy ustnej do koniuszka języka, uważając aby nie umieścić
+                                    szczotki/skrobaczki zbyt głęboko, może to spowodować odruch wymiotny. Ruch
+                                    powtarzamy kilkukrotnie, aż do osiągnięcia czystej powierzchni.</p>
+                                <p>Odpowiednie narzędzie do higieny języka mogą Państwo dobrać w naszym gabinecie z
+                                    pomocą lekarza.</p>
                             </dd>
                         </div>
 
@@ -710,7 +904,7 @@
             rights
             reserved.
     </footer>
-    
+
     <div class="privacy">
         <div class="privacy-content">
             <button class="privacy__button">
@@ -776,7 +970,7 @@
 </main>
 <script type="module" src="/main.js"></script>
 <script src="src/scripts/anime.min.js"></script>
-<script src="src/scripts/particles.js"></script>
+<!--<script src="src/scripts/particles.js"></script>-->
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 </body>

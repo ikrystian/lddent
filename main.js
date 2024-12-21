@@ -7,7 +7,28 @@ import 'slick-carousel';
 import 'lazysizes';
 import './src/styles/main.scss';
 
+import {gsap} from "gsap-trial";
+
+/* The following plugins are Club GSAP perks */
+import {ScrollSmoother} from "gsap-trial/ScrollSmoother";
+import {MorphSVGPlugin} from "gsap-trial/MorphSVGPlugin";
+import {SplitText} from "gsap-trial/SplitText";
+
+
+gsap.registerPlugin(ScrollSmoother, MorphSVGPlugin, SplitText);
+
 window.onload = function () {
+
+
+    var split = new SplitText("#heading", {type: "chars"});
+//now animate each character into place from 100px above, fading in:
+    gsap.from(split.chars, {
+        duration: 1,
+        x: 20,
+        autoAlpha: 0,
+        stagger: 0.05
+    });
+
     scrollSpy('#main-menu', {
         sectionClass: '.section',
         menuActiveTarget: '.nav__link',
@@ -51,20 +72,20 @@ window.onload = function () {
     tippy('[data-tippy-content]:not(.cookie-info)');
 
 
-    const anim = function () {
-        let particlesOpts = {};
-        particlesOpts.complete = () => {
-            $('.modal__footer').text('Wiadomość została wysłana ❤');
-            setTimeout(function () {
-                $('.modal__wrapper').fadeOut();
-            }, 5000);
-
-        };
-        const particles = new Particles(document.getElementById('as'), particlesOpts);
-        if (!particles.isAnimating()) {
-            particles.disintegrate();
-        }
-    };
+    // const anim = function () {
+    //     let particlesOpts = {};
+    //     particlesOpts.complete = () => {
+    //         $('.modal__footer').text('Wiadomość została wysłana ❤');
+    //         setTimeout(function () {
+    //             $('.modal__wrapper').fadeOut();
+    //         }, 5000);
+    //
+    //     };
+    //     const particles = new Particles(document.getElementById('as'), particlesOpts);
+    //     if (!particles.isAnimating()) {
+    //         particles.disintegrate();
+    //     }
+    // };
 
     const formValidation = () => {
         $('.modal').addClass('modal--checked');
@@ -107,52 +128,52 @@ window.onload = function () {
                 });
         }
     });
-
-
-    particlesJS("particles-js", {
-        "particles": {
-            "number": {"value": 160, "density": {"enable": true, "value_area": 800}},
-            "color": {"value": "#ffffff"},
-            "shape": {
-                "type": "circle",
-                "stroke": {"width": 0, "color": "#000000"},
-                "polygon": {"nb_sides": 5},
-            },
-            "opacity": {
-                "value": 1,
-                "random": true,
-                "anim": {"enable": true, "speed": 1, "opacity_min": 0, "sync": false}
-            },
-            "size": {"value": 8, "random": true, "anim": {"enable": false, "speed": 4, "size_min": 0.3, "sync": false}},
-            "line_linked": {"enable": false, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1},
-            "move": {
-                "enable": true,
-                "speed": 1,
-                "direction": "none",
-                "random": true,
-                "straight": false,
-                "out_mode": "out",
-                "bounce": false,
-                "attract": {"enable": false, "rotateX": 600, "rotateY": 600}
-            }
-        },
-        "interactivity": {
-            "detect_on": "canvas",
-            "events": {
-                "onhover": {"enable": true, "mode": "bubble"},
-                "onclick": {"enable": true, "mode": "repulse"},
-                "resize": true
-            },
-            "modes": {
-                "grab": {"distance": 400, "line_linked": {"opacity": 1}},
-                "bubble": {"distance": 250, "size": 0, "duration": 2, "opacity": 0, "speed": 3},
-                "repulse": {"distance": 400, "duration": 0.4},
-                "push": {"particles_nb": 4},
-                "remove": {"particles_nb": 2}
-            }
-        },
-        "retina_detect": true
-    });
+    //
+    //
+    // particlesJS("particles-js", {
+    //     "particles": {
+    //         "number": {"value": 160, "density": {"enable": true, "value_area": 800}},
+    //         "color": {"value": "#ffffff"},
+    //         "shape": {
+    //             "type": "circle",
+    //             "stroke": {"width": 0, "color": "#000000"},
+    //             "polygon": {"nb_sides": 5},
+    //         },
+    //         "opacity": {
+    //             "value": 1,
+    //             "random": true,
+    //             "anim": {"enable": true, "speed": 1, "opacity_min": 0, "sync": false}
+    //         },
+    //         "size": {"value": 8, "random": true, "anim": {"enable": false, "speed": 4, "size_min": 0.3, "sync": false}},
+    //         "line_linked": {"enable": false, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1},
+    //         "move": {
+    //             "enable": true,
+    //             "speed": 1,
+    //             "direction": "none",
+    //             "random": true,
+    //             "straight": false,
+    //             "out_mode": "out",
+    //             "bounce": false,
+    //             "attract": {"enable": false, "rotateX": 600, "rotateY": 600}
+    //         }
+    //     },
+    //     "interactivity": {
+    //         "detect_on": "canvas",
+    //         "events": {
+    //             "onhover": {"enable": true, "mode": "bubble"},
+    //             "onclick": {"enable": true, "mode": "repulse"},
+    //             "resize": true
+    //         },
+    //         "modes": {
+    //             "grab": {"distance": 400, "line_linked": {"opacity": 1}},
+    //             "bubble": {"distance": 250, "size": 0, "duration": 2, "opacity": 0, "speed": 3},
+    //             "repulse": {"distance": 400, "duration": 0.4},
+    //             "push": {"particles_nb": 4},
+    //             "remove": {"particles_nb": 2}
+    //         }
+    //     },
+    //     "retina_detect": true
+    // });
 
     let cookieInfoBar = $('.cookie-info');
     cookieInfoBar.on('click', function () {
@@ -176,9 +197,9 @@ window.onload = function () {
 
     });
 
-    $(".faq__item").on("click", function() {
+    $(".faq__item").on("click", function () {
         const $clickedItem = $(this);
-        const $currentDd   = $clickedItem.find("dd");
+        const $currentDd = $clickedItem.find("dd");
 
         if ($clickedItem.hasClass("faq__item--current")) {
             // If already open, simply close it
