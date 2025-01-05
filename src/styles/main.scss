@@ -33,9 +33,9 @@ $container-width: 1360px;
 
 @mixin gradient-overlay() {
   background: linear-gradient(
-                  to right,
-                  var(--primary-color),
-                  var(--secondary-color)
+    to right,
+    var(--primary-color),
+    var(--secondary-color)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -117,9 +117,9 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19);
   z-index: 5;
   background: linear-gradient(
-                  to bottom,
-                  var(--primary-color),
-                  var(--secondary-color)
+    to bottom,
+    var(--primary-color),
+    var(--secondary-color)
   );
 
   &__logo {
@@ -185,7 +185,6 @@ body {
     margin-bottom: 30px;
     cursor: none;
   }
-
 }
 
 figure {
@@ -201,18 +200,26 @@ figure::before {
   left: -75%;
   z-index: 2;
   display: block;
-  content: '';
+  content: "";
   width: 50%;
   height: 100%;
-  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
-  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+  background: -webkit-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
   -webkit-transform: skewX(-25deg);
   transform: skewX(-25deg);
 }
 
 figure:hover::before {
-  -webkit-animation: shine .75s;
-  animation: shine .75s;
+  -webkit-animation: shine 0.75s;
+  animation: shine 0.75s;
 }
 
 @-webkit-keyframes shine {
@@ -226,7 +233,6 @@ figure:hover::before {
     left: 125%;
   }
 }
-
 
 .hero-images {
   display: flex;
@@ -246,7 +252,6 @@ figure:hover::before {
       border-radius: 30px;
     }
   }
-
 }
 
 .section {
@@ -318,8 +323,9 @@ figure:hover::before {
     background-color: var(--person-image-background);
     opacity: 0.5;
     clip-path: circle(40% at 50% 50%);
-    transition: opacity 0.2s ease,
-    clip-path 0.1s ease;
+    transition:
+      opacity 0.2s ease,
+      clip-path 0.1s ease;
     position: relative;
 
     &:hover {
@@ -474,9 +480,9 @@ figure:hover::before {
         right: 0;
         bottom: 0;
         background: linear-gradient(
-                        to right,
-                        var(--primary-color),
-                        var(--secondary-color)
+          to right,
+          var(--primary-color),
+          var(--secondary-color)
         );
       }
     }
@@ -514,9 +520,9 @@ figure:hover::before {
       width: 8px;
       height: 8px;
       background: linear-gradient(
-                      to bottom,
-                      var(--primary-color),
-                      var(--secondary-color)
+        to bottom,
+        var(--primary-color),
+        var(--secondary-color)
       );
       position: absolute;
       left: 0;
@@ -639,9 +645,9 @@ figure:hover::before {
     &:hover,
     &:focus {
       background-image: linear-gradient(
-                      to right,
-                      var(--primary-color),
-                      var(--secondary-color)
+        to right,
+        var(--primary-color),
+        var(--secondary-color)
       );
       border-color: #fff;
 
@@ -683,8 +689,9 @@ figure:hover::before {
 
   svg {
     opacity: 0.6;
-    transition: opacity 0.2s,
-    transform 0.2s;
+    transition:
+      opacity 0.2s,
+      transform 0.2s;
   }
 }
 
@@ -759,8 +766,9 @@ figure:hover::before {
 
   &__image {
     opacity: 0.3;
-    transition: opacity 0.2s,
-    transform 0.2s;
+    transition:
+      opacity 0.2s,
+      transform 0.2s;
     width: 260px;
     height: auto;
   }
@@ -1050,9 +1058,9 @@ figure:hover::before {
     border: 0;
     cursor: pointer;
     background: linear-gradient(
-                    -45deg,
-                    var(--primary-color),
-                    var(--secondary-color)
+      -45deg,
+      var(--primary-color),
+      var(--secondary-color)
     );
     color: #fff;
     background-size: 400% 400%;
@@ -1230,8 +1238,9 @@ polygon {
     outline: none;
 
     i {
-      transition: color 0.2s,
-      transform 0.2s;
+      transition:
+        color 0.2s,
+        transform 0.2s;
     }
 
     &:hover,
@@ -1485,73 +1494,11 @@ polygon {
 }
 
 .faq {
-  padding-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-
-  @include res(tab) {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  &__column {
-    @include res(tab) {
-      flex: 50%;
-      padding: 1rem;
-      p {
-        font-size: 15px;
-        line-height: 1.6;
-      }
-    }
-  }
-
-  &__item {
-    box-shadow: 0 10px 50px 0 rgba(53, 82, 99, 0.09);
-    background-color: #f8fafd;
-    border: 1px solid rgba(0, 0, 0, 0.02);
-    padding: 20px 55px 20px 40px;
-    transition: padding 0.2s ease-in-out;
-    margin-bottom: 1rem;
-    position: relative;
-
-    &--current {
-      dt {
-        color: var(--primary-color);
-      }
-
-      &::after {
-        transform: rotate(360deg);
-        color: var(--primary-color);
-      }
-    }
-
-    &::after {
-      position: absolute;
-      content: "+";
-      font-size: 2em;
-      right: 0.5rem;
-      top: 0.5rem;
-      transition: color 0.2s ease,
-      transform 1s ease;
-    }
-  }
-
   dt {
-    cursor: pointer;
-    transition: color 0.2s ease;
-    font-size: 1.25em;
-
-    &:hover {
-      color: var(--primary-color);
-    }
-  }
-
-  dd {
-    display: none;
-
-    p {
-      padding-block: 0.5rem;
-    }
+    padding: 0 25px 35px 0;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: bold;
   }
 }
 
@@ -1576,8 +1523,7 @@ polygon {
 }
 
 .faq-cta-image {
-position: relative;
-
+  position: relative;
 }
 
 .faq-cta-item {
@@ -1594,7 +1540,8 @@ position: relative;
   transition: all 0.4s ease-in-out;
 }
 
-.our-offer, .beta-section {
+.our-offer,
+.beta-section {
   padding-top: 120px;
   padding-bottom: 105px;
 
@@ -1612,7 +1559,6 @@ position: relative;
     font-weight: bold;
     text-align: center;
     margin-bottom: 0;
-
   }
 
   &__heading {
@@ -1722,7 +1668,6 @@ position: relative;
     border-radius: 70px;
   }
 }
-
 
 @keyframes shake {
   10%,
