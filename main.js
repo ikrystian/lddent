@@ -7,27 +7,7 @@ import 'slick-carousel';
 import 'lazysizes';
 import './src/styles/main.scss';
 
-import {gsap} from "gsap-trial";
-
-/* The following plugins are Club GSAP perks */
-import {ScrollSmoother} from "gsap-trial/ScrollSmoother";
-import {MorphSVGPlugin} from "gsap-trial/MorphSVGPlugin";
-import {SplitText} from "gsap-trial/SplitText";
-
-
-gsap.registerPlugin(ScrollSmoother, MorphSVGPlugin, SplitText);
-
 window.onload = function () {
-
-
-    var split = new SplitText("#heading", {type: "chars"});
-//now animate each character into place from 100px above, fading in:
-    gsap.from(split.chars, {
-        duration: 1,
-        x: 20,
-        autoAlpha: 0,
-        stagger: 0.05
-    });
 
     scrollSpy('#main-menu', {
         sectionClass: '.section',
