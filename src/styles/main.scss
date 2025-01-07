@@ -51,6 +51,7 @@ $container-width: 1360px;
   --secondary-color: #65c0aa;
   --third-color: #8f96a5;
   --fourth-color: #3a444d;
+  
   --font-color: #39444d;
   --disabled-color: #cdd2de;
   --nav-link-color: #fff;
@@ -1617,6 +1618,12 @@ polygon {
       max-width: 100%;
       transition: all 0.3s ease-out 0s;
     }
+  }
+
+  &__image {
+      max-width: 80%;
+      display: block;
+      margin-inline: auto;
   }
 
   &__text {
