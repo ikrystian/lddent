@@ -51,7 +51,7 @@ $container-width: 1360px;
   --secondary-color: #65c0aa;
   --third-color: #8f96a5;
   --fourth-color: #3a444d;
-  
+
   --font-color: #39444d;
   --disabled-color: #cdd2de;
   --nav-link-color: #fff;
@@ -104,6 +104,10 @@ body {
   padding-left: var(--nav-width);
   max-width: 100vw;
   overflow-x: hidden;
+
+  #magicMouseCursor {
+    border-color: var(--primary-color) !important;
+  }
 }
 
 .aside {
@@ -1621,9 +1625,9 @@ polygon {
   }
 
   &__image {
-      max-width: 80%;
-      display: block;
-      margin-inline: auto;
+    max-width: 80%;
+    display: block;
+    margin-inline: auto;
   }
 
   &__text {
