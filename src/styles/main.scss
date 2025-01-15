@@ -110,6 +110,23 @@ body {
   }
 }
 
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+
+  &--dot {
+    width: 6px;
+    height: 6px;
+    left: -3px;
+    z-index: 100000;
+    top: -3px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+  }
+}
+
 .aside {
   width: var(--nav-width);
   position: fixed;
@@ -162,6 +179,10 @@ body {
   background-position: bottom center;
   position: relative;
 
+  p {
+    margin-bottom: 2rem;
+  }
+
   &__particles {
     position: absolute;
     inset: 0;
@@ -182,6 +203,23 @@ body {
   .column {
     width: 50%;
     padding-inline: 24px;
+  }
+
+  button {
+    border: 1px solid #1e84b5;
+    padding: 0.8rem 1.6rem;
+    color: #fff;
+    background-color: #1e84b5;
+    font-weight: bold;
+    border-radius: 0.8rem;
+    transition:
+      background-color 0.2s ease-in-out,
+      border-color 0.2s ease-in-out;
+
+    &:hover {
+      border-color: #ffffff1f;
+      background-color: transparent;
+    }
   }
 
   h1 {
@@ -298,7 +336,7 @@ figure:hover::before {
   width: 160px;
   outline: none;
   cursor: pointer;
-  text-decoration: none;
+  textrdecoration: none;
 
   @include res(tab) {
     width: 260px;

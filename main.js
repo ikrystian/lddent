@@ -8,17 +8,38 @@ import "lazysizes";
 import "./src/styles/main.scss";
 import { magicMouse } from "magicmouse.js";
 window.onload = function () {
+  let clientX = -1;
+  let clientY = -1;
+  const innerCursor = document.querySelector(".cursor--dot");
+
+  const initCursor = () => {
+    document.addEventListener("mousemove", (e) => {
+      (clientX = e.clientX), (clientY = e.clientY);
+      console.log(clientY, clientX);
+    });
+
+    const render = () => {
+      innerCursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+      requestAnimationFrame(render);
+    };
+    requestAnimationFrame(render);
+  };
+
+  initCursor();
+
   scrollSpy("#main-menu", {
     sectionClass: ".section",
     menuActiveTarget: ".nav__link",
     offset: 64,
   });
+
   $(".slick").slick({
     arrows: false,
     autoplay: true,
     fade: true,
     speed: 1000,
   });
+
   $("#loader").remove();
 
   $(".close-modal").on("click", () => $(".modal__wrapper").fadeOut());
@@ -213,12 +234,13 @@ window.onload = function () {
 
   // magicmouse
   let options = {
-    outerStyle: "circle-basic",
+    outerStyle: "circle",
     hoverEffect: "circle-move",
     hoverItemMove: false,
-    defaultCursor: true,
+    defaultCursor: false,
     outerWidth: 30,
     outerHeight: 30,
   };
+
   magicMouse(options);
 };
